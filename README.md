@@ -13,7 +13,7 @@ Empirically, Physics Reasoner mitigates the issues of insufficient knowledge and
 
 <figure>
     <img src="./images/method.jpg" alt="Method Image">
-    <figcaption> Figure 2: Illustration of Physics Reasoner, solving a physics problem using LLMs with the help of the formula set and checklists. The approach contains three stages: problem analysis, knowledge retrieval, and guided reasoning.
+    <figcaption> Figure 1: Illustration of Physics Reasoner, solving a physics problem using LLMs with the help of the formula set and checklists. The approach contains three stages: problem analysis, knowledge retrieval, and guided reasoning.
 </figure>
 
 

@@ -1,0 +1,78 @@
+{
+    "prompt_variables": [
+        {
+            "role": "system",
+            "content": "You are an excellent physics teacher. Given a physics problem and its extracted known variables, please examine the variables using the following checklist and revise it:\n\n**Checklist**:\n- Understand the problem, whether all known variables are extracted.\n- Whether the variable names are clear and can distinguish the different objects to which they may belong.\n- Whether some relevant const variables are provided as common knowledge, though maynot be explicitly given in the question, like for problem about gravity, the mass of sun and earth, and the radius of the Earth may be used.\n- Whether the variables have been converted to SI units.\n- If the units of the problem contain undefined variables mentioned in the problem that can vary, please define them as 1 before solving the problem.\n\nReturn the correct known variables in the format of Python code, encasing it within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Halley's comet, which passed around the sun early in 1986, moves in a highly elliptical orbit with an eccentricity of 0.967 and a period of 76 years. Calculate its minimum distances from the Sun. The unit of the answer is  10^10 m. **Variables**: ```\nimport math\n\n# given constants\nG = 6.67e-11  # gravitational constant in Nm^2/kg^2\ntau = 76 * 365 * 24 * 3600  # period of motion of Halley's comet in seconds\neccentricity = 0.967  # eccentricity of the comet's orbit\n\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The question pertains to astrophysics concerning comets and the Sun; however, the mass of the Sun is not specified. **Code**: ```\nimport math\n\n# given constants\nG = 6.67e-11  # gravitational constant in Nm^2/kg^2\nm_sun = 1.99e30  # mass of the sun in kg\ntau = 76 * 365 * 24 * 3600  # period of motion of Halley's comet in seconds\neccentricity = 0.967  # eccentricity of the comet's orbit\n\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The mass of a uniformly distributed sphere is m and its radius is R. Find the moment of inertia for rotation about an axis passing through its center.  The unit of the answer is  mR^2. **Variables**: ```\n# Given parameters\nm = 5 # mass of the sphere\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The variables have two errors. Since the units of the problem contain undefined variables mentioned in the problem, which are m and R, m and R should be defined as 1, while the user wrongly defines m as 5, and does not define the number of R.**Code**: ```\n# Given parameters\nm = 1 # mass of the sphere\nR = 1 # radius of the sphere\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The total mass of the rocket is 0.5 t, the fuel ejection rate is 5 kg/s, and the relative velocity of the ejected fuel is 200 m/s. Calculate the acceleration of the rocket at the moment of ignition.**Variables**: ```\n# Given parameters\nrocket_mass = 0.5 # mass of the rocket in t\nvelocity_fuel = 5 # the velocity of the fuel\nvelocity = 200 # the velocity of the fuel\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: There are 2 errors. First, the mass is not converted to SI unit, we should convert it from t to kg. Secondly, the definitions of the variable names are not clear enough. velocity_fuel and velocity refer to the fuel consumption rate and ejection speed of the rocket, respectively. They should be changed to the clearer names velocity_burnout and velocity_eject, and the comment should also distinguish them. **Code**: ```\n# Given parameters\nrocket_mass = 500 # mass of the rocket in kg\nvelocity_burnout = 5 # the speed of the fuel burning out, in kg/s\nvelocity = 200 # the velocity of the fuel ejected from the rocket in m/s\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Calculate the time needed for a spacecraft to make a Hohmann transfer from Earth to Mars. The unit of the answer is  10^7 s.**Variables**: ```\nimport math\n\n# given constants\nG = 6.67e-11  # Gravitational constant in m^3/kg/s^2\nM_sun = 1.99e30  # Mass of Sun in kg\nr_earth_sun = 1.50e11  # Distance from Earth to Sun in m\nr_mars_sun = 2.28e11  # Distance from Mars to Sun in m\n\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "No error. **Code**: ```# \nimport math\n\n# given constants\nG = 6.67e-11  # Gravitational constant in m^3/kg/s^2\nM_sun = 1.99e30  # Mass of Sun in kg\nr_earth_sun = 1.50e11  # Distance from Earth to Sun in m\nr_mars_sun = 2.28e11  # Distance from Mars to Sun in m\n\n"
+        }
+    ],
+    "prompt_code": [
+        {
+            "role": "system",
+            "content": "You are an excellent physics teacher. Given a physics problem and its Python code, please review the code using the following checklist and improve it:\n\n**Checklist**:\n- If the problem text is correctly understood and solved.\n- Whether the calculation corresponds with correct, appropriate formulas, and the formula is correctly copied and variables in formula are correctly understood.\n- Whether the variables and constants are correctly defined before use, ensuring that constants are not confused.\n- If the problem is solved, whether the code prints the first target variable at the end.\n- Check the unit, whether the target variable is printed in the required unit.\n- Check if the formula calculates the potential energy of the spring or the spring force; do not confuse them.\n- Check if the model calculates gravitational potential energy, make sure to check that gravitational potential energies are all negative.\n\nPlease reiterate your code and return the improved code. Encasing the code within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The spring's elasticity coefficient is 5 N/cm. A wooden block with a mass of 5 kg is placed on the spring, compressing it and keeping it stationary. Find the spring's elastic potential energy at this moment. The unit is J. **Code**: ```import numpy as np\n\n# Given parameters\nm = 5  # mass of the block\ng = 9.81  # acceleration due to gravity in m/s^2\nk = 500 # spring elasticity constant in N/m\n# Potential formulas\n# F = k * x, Calculate the force of the spring\n\n# Calculations\nx = m * g / k  # the compression of spring\nF = k * x  # potential energy\n\nprint(F)```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The code has 1 error. It confused the potential energy of the spring and the spring force. **Code**: ```import numpy as np\n\n# Given parameters\nm = 5  # mass of the block\ng = 9.81  # acceleration due to gravity in m/s^2\nk = 500 # spring elasticity constant in N/m\n# Potential formulas\n# F = k * x, Calculate the force of the spring\n\nE = 0.5 * k * x**2 # Calculate the potential energy of the spring\n\n# Calculations\nx = m * g / k  # the compression of spring\nE = 0.5 * k * x**2  # potential energy\n\nprint(F)```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Assuming no air resistance, how many millimeters will an object weighing 5kg deviate upon landing due to the Coriolis force when dropped from a tower with the height of 500m at 45 degrees north latitude? The unit of the code is mm. **Code**: ```\nimport math\n\n# Given parameters\nlatitude = math.radians(45)  # degrees in rad\nmass = 5  # kg\nomega = 0.5  # rad/s (angular velocity of the Earth)\nh = 500 # the height in m\n\n# Potential formulas\n# d = 1/3 * w * cos(lat) * sqrt(8 * h **3 / g), calculate deviation due to Coriolis force\n\n# Calculate deviation\ndeviation = 1/3 * omega * math.cos(latitude) * h / 9.81\n\nprint(deviation_mm)\n\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: There are 3 errors in the code:\n1. The initialization of the Earth's angular velocity is incorrect; it should be 7.29e-5 rad/s.\n2. The formula is not correctly applied. The formula was not fully used as 1/3 * w * cos(lat) * sqrt(8 * h **3 / g) but written as 1/3 * w * cos(lat) * h / g.\n3. The deviation is not printed in the required unit. It should be multiplied by 1000 to convert to mm.\n **Code**: ```\nimport math\n\n# Given parameters\nlatitude = math.radians(45)  # degrees in rad\nmass = 5  # kg\nomega = 7.29e-5  # rad/s (angular velocity of the Earth)\nh = 500 # the height in m\n\n# Potential formulas\n# d = 1/3 * w * cos(lat) * sqrt(8 * h **3 / g), calculate deviation due to Coriolis force\n\n# Calculate deviation\ndeviation = 1/3 * omega * math.cos(latitude) * math.sqrt(8 * h ** 3 / 9.81)\n\n# Convert deviation to millimeters\ndeviation_mm = deviation * 1000\n\nprint(deviation_mm)\n\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Calculate the gravitational potential energy of a satellite with a mass of 100kg on its synchronous orbit around the Earth. The unit of the code is J **Code**: ```\nimport math\n\n# Given parameters\nm_earth = 5.972e24# mass of the Earth in kg\nm_satellite = 100# mass of the satellite in kg\nT = 24*3600# orbital period in seconds\n\n# calculate the radius of the synchronous orbit of the Earth\nR = ((G * m_earth * (T ** 2)) / (4 * (math.pi ** 2))) ** (1/3)\n\n# Gravitational potential energy calculation\nU = G * (m_earth * m_satellite) / R\n\nprint(U)\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The code has 2 error. \n1.When calculating radius of the synchronous orbit of the Earth, the constant G is not defined, which should be 6.67430e-11.\n2.The code calculates gravitational potential energy, which should be always negative, but the formula does not have a negative sign in front of it.**Code**: ```\nimport math\n\n# Given parameters\nG = 6.67430e-11  \nm_earth = 5.972e24# mass of the Earth in kg\nm_satellite = 100# mass of the satellite in kg\nT = 24*3600# orbital period in seconds\n\n# calculate the radius of the synchronous orbit of the Earth\nR = ((G * m_earth * (T ** 2)) / (4 * (math.pi ** 2))) ** (1/3)\n\n# Gravitational potential energy calculation\nU = -G * (m_earth * m_satellite) / R\n\nprint(U)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A 2.00kg particle moves along an x axis in one-dimensional motion while a conservative force along that axis acts on it. The potential energy U(x) associated with the force is plotted in Fig. 8-10a. That is, if the particle were placed at any position between x=0 and x=7.00m, it would have the plotted value of U. At x=6.5m, the particle has velocity v_0=(-4.00 m/s)*i\nFrom Figure, determine the particle speed at x_1=4.5m. The unit of the code is m/s **Code**: ```\nimport numpy as np\n\n# Given parameters\nm = 2.00  # mass in kg\nv0 = 4.00  # initial velocity in m/s\nU0 = 0  # initial potential energy in J\nU1 = 7.0  # final potential energy in J\n\n# Potential formulas\n# K = m * v ** 2 / 2, calculate kinetic energy\n\nK0 = m * v0**2 / 2 # initial kinetic energy in J\nEmec = K0 + U0  # initial mechanical energy\nK1 = Emec - U1  # final kinetic energy\n\n# Because K1 = 0.5 * m * v1^2, we find v1\nv1 = np.sqrt(2 * K1 / m)  # final velocity\nprint(v1)```"
+        },
+        {
+            "role": "assistant",
+            "content": "No error **Code**: ```\nimport numpy as np\n\n# Given parameters\nm = 2.00  # mass in kg\nv0 = 4.00  # initial velocity in m/s\nU0 = 0  # initial potential energy in J\nU1 = 7.0  # final potential energy in J\n\n# Potential formulas\n# K = m * v ** 2 / 2, calculate kinetic energy\n\nK0 = m * v0**2 / 2 # initial kinetic energy in J\nEmec = K0 + U0  # initial mechanical energy\nK1 = Emec - U1  # final kinetic energy\n\n# Because K1 = 0.5 * m * v1^2, we find v1\nv1 = np.sqrt(2 * K1 / m)  # final velocity\nprint(v1)```"
+        }
+    ]
+}

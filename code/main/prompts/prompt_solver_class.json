@@ -1,0 +1,154 @@
+{
+    "prompt_ext_vars": [
+        {
+            "role": "system",
+            "content": "\nYou are an excellent student major in physics. Given a physics problem, please extract known variables from it in the format of Python code. The problem is sourced from a college-level textbook, and it requires analytical reasoning in physics. \nThe extracted variables should be well-named to represent the objects to which they belong, and should be well-annotated with comments that provide sufficient explanations of the variables defined, including their units. Encase the python code within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: If the coefficient of static friction between the block and plane in the previous example is mu_s=0.4, at what angle theta will the block start sliding if it is initially at rest? The unit of the answer is  circ."
+        },
+        {
+            "role": "assistant",
+            "content": "```import math\n\n# Given parameters\nmu_s = 0.4 # static friction coefficient \n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Halley's comet, which passed around the sun early in 1986, moves in a highly elliptical orbit with an eccentricity of 0.967 and a period of 76 years. Calculate its minimum distances from the Sun. The unit of the answer is  10^10 m."
+        },
+        {
+            "role": "assistant",
+            "content": "```import math\n\n# Given parameters\nG = 6.67e-11  # gravitational constant in Nm^2/kg^2\nm_sun = 1.99e30  # mass of the sun in kg\ntau = 76 * 365 * 24 * 3600  # period of motion of Halley's comet in seconds\neccentricity = 0.967  # eccentricity of the comet's orbit\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: We treat projectile motion in two dimensions, first without considering air resistance. Let the muzzle velocity of the projectile be v_0=1450m/s and the angle of elevation be theta=55 in radians. Calculate the projectile's max height. The unit of the answer is km."
+        },
+        {
+            "role": "assistant",
+            "content": "```import math\n\n# Given parameters\nv_0 = 1450  # initial muzzle velocity in m/s\ntheta = math.radians(55)  # angle of elevation in radians\ng = 9.8  # acceleration due to gravity in m/s^2\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Calculate the time needed for a spacecraft to make a Hohmann transfer from Earth to Mars. The unit of the answer is  10^7 s."
+        },
+        {
+            "role": "assistant",
+            "content": "```import math\n\n# Given parameters\nG = 6.67e-11  # Gravitational constant in m^3/kg/s^2\nM_sun = 1.99e30  # Mass of Sun in kg\nr_earth_sun = 1.50e11  # Distance from Earth to Sun in m\nr_mars_sun = 2.28e11  # Distance from Mars to Sun in m\n```"
+        }
+    ],
+    "prompt_retr_subfields": [
+        {
+            "role": "system",
+            "content": "You are an excellent student major in physics, given a physics problem, which could be related with several subfields of physics, including: [Newtonian Mechanics, Oscillations, Dynamics of a system of Particles, Motion in a noninertial frame, Kinetic energy, Potential energy, Rotation, Gravitation, Coulomb law, Electric field, Gauss law]. Determine and return relevant subject(s) from the probided list."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: If the coefficient of static friction between the block and plane in the previous example is mu_s=0.4, at what angle theta will the block start sliding if it is initially at rest? "
+        },
+        {
+            "role": "assistant",
+            "content": "Newtonian Mechanics"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Halley's comet, which passed around the sun early in 1986, moves in a highly elliptical orbit with an eccentricity of 0.967 and a period of 76 years. Calculate its minimum distances from the Sun. "
+        },
+        {
+            "role": "assistant",
+            "content": "Gravitation"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: We treat projectile motion in two dimensions, first without considering air resistance. Let the muzzle velocity of the projectile be v_0=1450m/s and the angle of elevation be theta=55 in radians. Calculate the projectile's max height."
+        },
+        {
+            "role": "assistant",
+            "content": "Newtonian Mechanics"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Calculate the time needed for a spacecraft to make a Hohmann transfer from Earth to Mars."
+        },
+        {
+            "role": "assistant",
+            "content": "Gravitation"
+        }        
+    ],
+    "prompt_retr_for": [
+        {
+            "role": "system",
+            "content": "\nYou are an excellent student major in physics, given a physics problem, please identify and retrieve relevant formulas. Annotate these relevant formulas in Python comments format and encase the Python code within triple backticks for clarity."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: If the coefficient of static friction between the block and plane in the previous example is mu_s=0.4, at what angle theta will the block start sliding if it is initially at rest? **Possible formulas**: {'Newtonian Mechanics': [{'name': 'Support force of a mass on an inclined plane', 'content': 'N = m * g * cos(theta)'}, {'name': 'Kinetic friction force','content': 'f_k = mu_k * N'}, {'name': 'displacement of an object under constant acceleration', 'content': 'x = x0 + v0 * t + 0.5 * a * t ** 2'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# N = m * g * cos(theta), calculate support force of a mass on an inclined plane\n# f_k = mu_k * N, calculate kinetic friction force```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Halley's comet, which passed around the sun early in 1986, moves in a highly elliptical orbit with an eccentricity of 0.967 and a period of 76 years. Calculate its minimum distances from the Sun. **Possible formulas**: {'Gravitation': [{'name': 'Mechanical_Energy_in_Planetary_Motion', 'content': 'E = - G * M * m / (2 * r)'}, {'name': 'The orbit of Kelper's Problem', 'content': 'r = p / (1 - e * cos(theta))'},{'name': 'semi-latus rectum', 'content': 'a = p / (1 - e**2)'},{'name': 'pericenter distance of an orbit', 'content': 'r_p = a * (1 - e)'},{'name': 'apocenter distance of an orbit', 'content': 'r_a = a * (1 + e)'},{'name': 'semi-latus given the energy of an orbit', 'content': 'a = -k / (2 * E)'},{'name': 'the relation between the period and the semi-major axis of an orbit', 'content': 'T = 2 * pi * sqrt(a**3 / (G * M))'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# T = 2 * pi * sqrt(a**3 / (G * M)), calculate the relation between the period and the semi-major axis of an orbit, where G=6.67e-11, M=1.99e30\n# r_p = a * (1 - e), calculate pericenter distance of an orbit```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: We treat projectile motion in two dimensions, first without considering air resistance. Let the muzzle velocity of the projectile be v_0=1450m/s and the angle of elevation be theta=55 in radians. Calculate the projectile's max height. **Possible formulas**: {'Newtonian Mechanics': [{'name': 'Support force of a mass on an inclined plane', 'content': 'N = m * g * cos(theta)'}, {'name': 'Kinetic friction force','content': 'f_k = mu_k * N'}, {'name': 'displacement of an object under constant acceleration', 'content': 'x = x0 + v0 * t + 0.5 * a * t ** 2'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential Formulas\n# x = x0 + v0 * t + 0.5 * a * t ** 2, where a = -g, calculate displacement of an object under constant acceleration\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Calculate the time needed for a spacecraft to make a Hohmann transfer from Earth to Mars. **Possible formulas**: {'Gravitation': [{'name': 'Mechanical_Energy_in_Planetary_Motion', 'content': 'E = - G * M * m / (2 * r)'}, {'name': 'The orbit of Kelper's Problem', 'content': 'r = p / (1 - e * cos(theta))'},{'name': 'semi-latus rectum', 'content': 'a = p / (1 - e**2)'},{'name': 'pericenter distance of an orbit', 'content': 'r_p = a * (1 - e)'},{'name': 'apocenter distance of an orbit', 'content': 'r_a = a * (1 + e)'},{'name': 'semi-latus given the energy of an orbit', 'content': 'a = -k / (2 * E)'},{'name': 'the relation between the period and the semi-major axis of an orbit', 'content': 'T = 2 * pi * sqrt(a**3 / (G * M))'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# T = 2 * pi * sqrt(a**3 / (G * M)), calculate the relation between the period and the semi-major axis of an orbit, where G=6.67e-11, M=1.99e30```"
+        }
+    ],
+    "prompt_gen_code": [
+        {
+            "role": "system",
+            "content": "You are an excellent student major in physics, given a physics problem and its incomplete Python code, please think and complete the code. Print the target variable at the end if the problem has been solved. For unknown variables that will be used in the target unit, you can assign a value of 1 to it. If there exist more than 1 target variables, print the first one in the required unit. Remember to check whether the formulas are correctly used. Return the complete Python code and ensure it within triple backticks for clarity."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: If the coefficient of static friction between the block and plane in the previous example is mu_s=0.4, at what angle theta will the block start sliding if it is initially at rest? The unit of the answer is  circ. **Incomplete python code**: ```\nimport math\n\n# given static friction coefficient\nmu_s = 0.4 \n\n# Potential formulas\n# N = m * g * cos(theta), calculate support force of a mass on an inclined plane\n# f_k = mu_k * N, calculate kinetic friction force```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n\n# given static friction coefficient\nmu_s = 0.4 \n\n# Potential formulas\n# N = m * g * cos(theta), calculate support force of a mass on an inclined plane\n# f_k = mu_k * N, calculate kinetic friction force\n\n# Calculate angle in radians\ntheta_radians = math.atan(mu_s)\n\n# Convert angle to degrees\ntheta_degrees = math.degrees(theta_radians)\n\nprint(theta_degrees)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Halley's comet, which passed around the sun early in 1986, moves in a highly elliptical orbit with an eccentricity of 0.967 and a period of 76 years. Calculate its minimum distances from the Sun. The unit of the answer is  10^10 m. **Incomplete python code**: ```\nimport math\n\n# given constants\nG = 6.67e-11  # gravitational constant in Nm^2/kg^2\nm_sun = 1.99e30  # mass of the sun in kg\ntau = 76 * 365 * 24 * 3600  # period of motion of Halley's comet in seconds\neccentricity = 0.967  # eccentricity of the comet's orbit\n\n# Potential formulas\n# T = 2 * pi * sqrt(a**3 / (G * M)), calculate the relation between the period and the semi-major axis of an orbit, where G=6.67e-11, M=1.99e30\n# r_p = a * (1 - e), calculate pericenter distance of an orbit\n```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n\n# given constants\nG = 6.67e-11  # gravitational constant in Nm^2/kg^2\nm_sun = 1.99e30  # mass of the sun in kg\ntau = 76 * 365 * 24 * 3600  # period of motion of Halley's comet in seconds\neccentricity = 0.967  # eccentricity of the comet's orbit\n\n# Potential formulas\n# T = 2 * pi * sqrt(a**3 / (G * M)), calculate the relation between the period and the semi-major axis of an orbit, where G=6.67e-11, M=1.99e30\n# r_p = a * (1 - e), calculate pericenter distance of an orbit\n# Calculate semimajor axis\na = ((G * m_sun * tau**2) / (4 * math.pi**2))**(1 / 3)\n\n# Calculate minimum distance\nr_min = a * (1 - eccentricity)\n\n# Convert minimum distance from meters to 10^12 meters\nr_min_10_12 = r_min / 1e10\n\nprint(r_min_10_12)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: We treat projectile motion in two dimensions, first without considering air resistance. Let the muzzle velocity of the projectile be v_0=1450m/s and the angle of elevation be theta=55 in radians. Calculate the projectile's max height. The unit of the answer is km. **Incomplete python code**: ```\nimport math\n\n# given constants\nv_0 = 1450  # muzzle velocity in m/s\ntheta = math.radians(55)  # angle of elevation in radians\ng = 9.8  # acceleration due to gravity in m/s^2\n\n# Potential Formulas\n# x = x0 + v0 * t + 0.5 * a * t ** 2, where a = -g, calculate displacement of an object under constant acceleration\n\n```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n\n# given constants\nv_0 = 1450  # muzzle velocity in m/s\ntheta = math.radians(55)  # angle of elevation in radians\ng = 9.8  # acceleration due to gravity in m/s^2\n\n# Potential Formulas\n# x = x0 + v0 * t + 0.5 * a * t ** 2, where a = -g, calculate displacement of an object under constant acceleration\n\n# calculate time of flight\nT = 2 * v_0 * math.sin(theta) / g\n\n# calculate maximum height\ny_max = v_0 * (T/2) * math.sin(theta) - 0.5 * g * (T/2)**2\n\ny_max_km = y_max / 1000\n\nprint(y_max_km)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Calculate the time needed for a spacecraft to make a Hohmann transfer from Earth to Mars. The unit of the answer is  10^7 s. **Incomplete python code**: ```\nimport math\n\n# given constants\nG = 6.67e-11  # Gravitational constant in m^3/kg/s^2\nM_sun = 1.99e30  # Mass of Sun in kg\nr_earth_sun = 1.50e11  # Distance from Earth to Sun in m\nr_mars_sun = 2.28e11  # Distance from Mars to Sun in m\n\n# Potential formulas\n# T = 2 * pi * sqrt(a**3 / (G * M)), calculate the relation between the period and the semi-major axis of an orbit, where G=6.67e-11, M=1.99e30\n```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n\n# given constants\nG = 6.67e-11  # Gravitational constant in m^3/kg/s^2\nM_sun = 1.99e30  # Mass of Sun in kg\nr_earth_sun = 1.50e11  # Distance from Earth to Sun in m\nr_mars_sun = 2.28e11  # Distance from Mars to Sun in m\n\n# Potential formulas\n# T = 2 * pi * sqrt(a**3 / (G * M)), calculate the relation between the period and the semi-major axis of an orbit, where G=6.67e-11, M=1.99e30\n# calculate m/k\nm_over_k = 1 / (G * M_sun)\n\n# calculate k/m\nk_over_m = 1 / m_over_k\n\n# calculate average distance\na_t = 0.5 * (r_earth_sun + r_mars_sun)\n\n# calculate transfer time\nT_t = math.pi * math.sqrt(m_over_k) * a_t**(3/2)\n\n# convert s to 10^7 s\nT_t = T_t / 1e7\n\nprint(T_t)\n```"
+        }
+    ]
+}

@@ -1,0 +1,505 @@
+{   "Newtonian Mechanics": {
+        "2-2": {
+            "name": "Support force of a mass on an inclined plane",
+            "content": "N = m * g * cos(theta)",
+            "variables": {
+                "N": "support force",
+                "m": "mass of the object",
+                "g": "acceleration due to gravity",
+                "theta": "angle of the inclined plane"
+            }
+        },
+        "2-3": {
+            "name": "Kinetic friction force",
+            "content": "f_k = mu_k * N",
+            "variables": {
+                "f_k": "kinetic friction force",
+                "mu_k": "coefficient of kinetic friction",
+                "N": "support force"
+            } 
+        },
+        "2-4": {
+            "name": "displacement of an object under constant acceleration",
+            "content": "x = x0 + v0 * t + 0.5 * a * t ** 2",
+            "variables": {
+                "x": "displacement of the object",
+                "x0": "initial position of the object",
+                "v0": "initial velocity of the object",
+                "a": "acceleration of the object",
+                "t": "time"
+            }
+        }
+    },
+    "Oscillations": {
+        "3-1": {
+            "name": "Period of an oscillator",
+            "content": "T = 2 * pi * sqrt(m / k)",
+            "variables": {
+                "T": "Period of the mass-spring system",
+                "m": "Mass",
+                "k": "Spring constant"
+            }
+        },
+        "3-2": {
+            "name": "Angular Frequency of an oscillator",
+            "content": "w = 2 * pi / T",
+            "variables": {
+                "w": "Angular frequency of the mass-spring system",
+                "T": "Period of the mass-spring system"
+            }
+        },
+        "3-3": {
+            "name": "Angular Frequency of an oscillator, given frequency",
+            "content": "w = 2 * pi * f",
+            "variables": {
+                "w": "Angular frequency of the mass-spring system",
+                "f": "Frequency of the mass-spring system"
+            }
+        },
+        "3-4": {
+            "name": "Total Energy of oscillating system",
+            "content": "E = 0.5 * k * A**2",
+            "variables": {
+                "E": "Total energy of the oscillating system",
+                "k": "Spring constant",
+                "A": "Amplitude of oscillation"
+            }
+        }
+    },
+    "Dynamics of a system of Particles": {
+        "5-1": {
+            "name":  "conservation of momentum",
+            "content": "m1 * v1 + m2 * v2 = m1 * v1' + m2 * v2'",
+            "variables": {
+                "m1": "mass of object 1",
+                "m2": "mass of object 2",
+                "v1": "initial velocity of object 1",
+                "v2": "initial velocity of object 2",
+                "v1'": "final velocity of object 1",
+                "v2'": "final velocity of object 2"
+            }
+        },
+        "5-2": {
+            "name": "angular of 2d elastic collision of two particles",
+            "content": "tan(phi) = sin(theta) / (cos(theta)+(m1/m2))",
+            "variables": {
+                "phi": "angle through which m1 is deflected in the LAB system",
+                "theta": "angle through which m1 and m2 are deflected in the CM system",
+                "m1": "mass of object 1",
+                "m2": "mass of object 2"
+            }
+        },
+        "5-3": {
+            "name": "angular of 2d elastic collision of two particles",
+            "content": "tan(zeta) = cot(theta / 2)",
+            "variables": {
+                "zeta": "angle through which m2 is deflected in the LAB system",
+                "theta": "angle through which m1 and m2 are deflected in the CM system"
+            }
+        },
+        "5-4": {
+            "name": "velocity of m1 in 1d elastic collision of two particles",
+            "content": "v1' = (m1 - m2) * v1 / (m1 + m2) + 2 * m2 * v2/ (m1 + m2)",
+            "variables": {
+                "v1'": "final velocity of object 1",
+                "v1": "initial velocity of object 1",
+                "v2": "initial velocity of object 2",
+                "m1": "mass of object 1",
+                "m2": "mass of object 2"
+            }
+        },
+        "5-5": {
+            "name": "velocity of m2 in 1d elastic collision of two particles",
+            "content": "v2' = 2 * m1 * v1 / (m1 + m2) + (m2 - m1) * v2 / (m1 + m2)",
+            "variables": {
+                "v2'": "final velocity of object 2",
+                "v1": "initial velocity of object 1",
+                "v2": "initial velocity of object 2",
+                "m1": "mass of object 1",
+                "m2": "mass of object 2"
+            }
+        },
+        "5-6": {
+            "name": "coefficient of restitution in inelastic collision of two particles",
+            "content": "e = (v2' - v1') / (v1 - v2)",
+            "variables": {
+                "e": "coefficient of restitution",
+                "v1": "initial velocity of object 1",
+                "v2": "initial velocity of object 2",
+                "v1'": "final velocity of object 1",
+                "v2'": "final velocity of object 2"
+            }
+        },
+        "5-7": {
+            "name": "rocket motion",
+            "content": "v = v0 + u * ln(m0 / m)",
+            "variables": {
+                "v": "velocity of the rocket",
+                "v0": "the initial velocity of the rocket",
+                "u": "exhaust velocity",
+                "m0": "initial mass of the rocket",
+                "m": "final mass of the rocket"
+            }
+        },
+        "5-8": {
+            "name": "reduced mass",
+            "content": "mu = m1 * m2 / (m1 + m2)",
+            "variables": {
+                "mu": "reduced mass",
+                "m1": "mass of object 1",
+                "m2": "mass of object 2"
+            }
+        }
+    },
+    "Motion in a noninertial frame": {
+        "6-1": {
+            "name": "Coriolis force",
+            "content": "F_c = -2 * m * v * w",
+            "variables": {
+                "F_c": "Coriolis force",
+                "m": "mass of the object",
+                "v": "velocity of the object",
+                "w": "angular velocity of the frame"
+            }
+        },
+        "6-2": {
+            "name": "velocity transformation in a rotating frame",
+            "content": "v' = v + w x r",
+            "variables": {
+                "v'": "velocity of the object in the inertia frame",
+                "v": "velocity of the object in the rotating frame",
+                "w": "angular velocity of the frame",
+                "r": "position vector of the object"
+            }
+        },
+        "6-3": {
+            "name": "eastward deflection of a particle dropped from rest at a height h",
+            "content": "d = 1/3 * w * cos(lat) * sqrt(8 * h **3 / g)",
+            "variables": {
+                "d": "eastward deflection",
+                "w": "angular velocity of the earth, 7.29 * 10 ** -5 rad/s",
+                "lat": "latitude",
+                "h": "height of the object when dropped",
+                "g": "acceleration due to gravity, 9.8 m/s ** 2"
+            }
+        }
+    },
+    "Kinetic energy": {
+        "7-1": {
+            "name": "Kinetic_Energy",
+            "content": "K = m * (v ** 2) / 2",
+            "variables": {
+                "K": "Kinetic energy",
+                "m": "Mass",
+                "v": "Velocity"
+            }
+        }
+    },
+    "Potential energy": {
+        "8-33": {
+            "name": "Work_done_on_a_System_by_an_External_Force",
+            "content": "W = delta_E_mec + delta_E_th",
+            "variables": {
+                "W": "Work done on a system by an external force",
+                "delta_E_mec": "change of mechanical energy",
+                "delta_E_th": "change of thermal energy"
+            }
+        },
+        "8-1": {
+            "name": "Potential Energy of a spring",
+            "content": "E = 0.5 * k * x**2",
+            "variables": {
+                "E": "Potential Energy of the spring",
+                "k": "Spring constant",
+                "x": "Displacement from equilibrium"
+            }
+        }
+    },
+    "Rotation": {
+        "10-12": {
+            "name": "Angular_Velocity_with_Constant_Angular_Acceleration",
+            "content": "w = w0 + a * t",
+            "variables": {
+                "w": "Final angular velocity",
+                "w0": "Initial angular velocity",
+                "a": "Constant angular acceleration",
+                "t": "Time elapsed"
+            }
+        },
+        "10-33-c": {
+            "name": "Rotational_Inertia_of_solid_disk_about_central_axis",
+            "content": "I = M * R ** 2 / 2",
+            "variables": {
+                "I": "Rotational inertia",
+                "M": "Mass of the disk",
+                "R": "Radius of the disk"
+            }
+        },
+        "10-34": {
+            "name": "Rotational_Kinetic_Energy",
+            "content": "K = I * (w ** 2) / 2",
+            "variables": {
+                "K": "Rotational kinetic energy",
+                "I": "Rotational inertia of the body",
+                "w": "Angular velocity"
+            }
+        }
+    },
+    "Gravitation": {
+        "13-40": {
+            "name": "Mechanical_Energy_in_Planetary_Motion",
+            "content": "E = - G * M * m / (2 * r)",
+            "variables": {
+                "E": "Mechanical energy",
+                "G": "Gravitational constant, approximately 6.67 * 10**11 N*m**2/kg**2",
+                "M": "Mass of the circular orbit",
+                "m": "Mass of the moving planet or satellite",
+                "r": "Radius"
+            }
+        },
+        "13-2": {
+            "name": "The orbit of Kelper's Problem",
+            "content": "r = p / (1 - e * cos(theta))",
+            "variables": {
+                "r": "distance from the center of the ellipse",
+                "p": "the focal parameter, constant for a given orbit",
+                "e": "eccentricity, constant for a given orbit",
+                "theta": "angle from the perihelion"
+            }
+        },
+        "13-3": {
+            "name": "semi-latus rectum",
+            "content": "a = p / (1 - e ** 2)",
+            "variables": {
+                "a": "semi-latus rectum, constant for a given orbit",
+                "p": "the focal parameter, constant for a given orbit",
+                "e": "eccentricity, constant for a given orbit"
+            }
+        },
+        "13-4": {
+            "name": "pericenter distance of an orbit",
+            "content": "r_p = a * (1 - e)",
+            "variables": {
+                "r_p": "pericenter distance",
+                "a": "semi-latus rectum, constant for a given orbit",
+                "e": "eccentricity, constant for a given orbit"
+            }
+        },
+        "13-5": {
+            "name": "apocenter distance of an orbit",
+            "content": "r_a = a * (1 + e)",
+            "variables": {
+                "r_a": "apocenter distance",
+                "a": "semi-latus rectum, constant for a given orbit",
+                "e": "eccentricity, constant for a given orbit"
+            }
+        },
+        "13-6": {
+            "name": "semi-latus given the energy of an orbit",
+            "content": "a = -k / (2 * E)",
+            "variables": {
+                "a": "semi-latus rectum, constant for a given orbit",
+                "k": "proportionality constant of the inverse square law",
+                "E": "total energy of the orbit"
+            }
+        },
+        "13-7": {
+            "name": "the relation between the period and the semi-major axis of an orbit",
+            "content": "T = 2 * pi * sqrt(a ** 3 / (G * M) )",
+            "variables": {
+                "T": "period of the orbit",
+                "a": "semi-major axis of the orbit",
+                "G": "universal gravitational constant",
+                "M": "mass of the central body"
+            }
+        }
+    },
+    "Coulomb law": {
+        "21-3": {
+            "name": "Electric current calculated by charge and time",
+            "content": "i = dq / dt",
+            "variables": {
+                "i": "Electric current, the rate of charge flow",
+                "dq": "Infinitesimal amount of charge",
+                "dt": "Infinitesimal interval of time"
+            }
+        },
+        "21-4": {
+            "name": "Coulomb law, describing the electric force between 2 charged particles, where epsilon_0 is approximately 8.85e-12 F/m.",
+            "content": "F =  |q1 * q2| / (4 * pi * epsilon_0 * (r**2))",
+            "variables": {
+                "F": "Magnitude of the electrostatic force between two point charges",
+                "pi": "Mathematical constant Pi, approximately 3.14159",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)",
+                "q1": "Charge of the first point",
+                "q2": "Charge of the second point",
+                "r": "Distance between the two charges"
+            }
+        },
+        "21-4-2": {
+            "name": "Coulomb law with electrostatic constant, describing the electric force between 2 charged particles.",
+            "content": "F =  k * |q1 * q2| / (r**2)",
+            "variables": {
+                "F": "Magnitude of the electrostatic force between two point charges",
+                "k": "electrostatic constant, approximately 8.99 * 10^9 N*m^2/C^2",
+                "q1": "Charge of the first point",
+                "q2": "Charge of the second point",
+                "r": "Distance between the two charges"
+            }
+        },
+        "21-0": {
+            "name": "The conversion of electrostatic constant k and permittivity constant epsilon_0, where epsilon_0 is approximately 8.85e-12 F/m and k is 8.99e9N*m^2/C^2",
+            "content": "K = 1 / (4 * pi * epsilon_0)"
+        }
+    },
+    "Electric field": {
+        "22-1": {
+            "name": "Definition of electric field, defined in terms of the electrostatic force that would be extracted on a positive charge q0",
+            "content": "E = F / q0",
+            "variables": {
+                "E": "Electric field vector",
+                "F": "Electrostatic force vector experienced by the test charge",
+                "q0": "Magnitude of the positive test charge placed at the point"
+            }
+        },
+        "22-3": {
+            "name": "Magnitude of the electric field set up by a point charge q at a distance r from the charge, where epsilon_0 is approximately 8.85e-12 F/m",
+            "content": "E = |q| / (4 * pi * epsilon_0 * (r ** 2))",
+            "variables": {
+                "E": "Electric field created by the point charge",
+                "pi": "Mathematical constant Pi, approximately 3.14159",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)",
+                "q": "Charge of the point charge",
+                "r": "Distance from the charge where the field is being calculated"
+            }
+        },
+        "22-9": {
+            "name": "Magnitude of the electric Field set up by the dipole at a distant point on the dipole axis, where epsilon_0 is approximately 8.85e-12 F/m",
+            "content": "E = p / (2 * pi * epsilon_0 * (z ** 3))",
+            "variables": {
+                "E": "Electric field due to the dipole",
+                "pi": "Mathematical constant Pi, approximately 3.14159",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)",
+                "p": "Dipole moment of the dipole",
+                "z": "Distance between the point and the center of the dipole"
+            }
+        },
+        "22-26": {
+            "name": "Magnitude of the electric at a point on the central axis through a uniformly charged disk, where epsilon_0 is approximately 8.85e-12 F/m",
+            "content": "E = (s / (2 * epsilon_0)) * (1 - (z / sqrt(z * *2 + R ** 2)))",
+            "variables": {
+                "E": "Electric field at a point along the axis",
+                "s": "Surface charge density of the disk",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)",
+                "z": "Distance along the axis from the center of the disk",
+                "R": "Radius of the disk"
+            }
+        },
+        "22-28": {
+            "name": "Electrostatic force that acts on the point charge, when a point charge q is placed in an external electric field E",
+            "content": "F = q * E",
+            "variables": {
+                "F": "Electrostatic force vector on the charge",
+                "q": "Magnitude of the point charge",
+                "E": "Electric field vector strength"
+            }
+        },
+        "22-34": {
+            "name": "Torque on an electric dipole of dipole moment p, which is placed in an electric field E",
+            "content": "tau = np.cross(p, E)",
+            "variables": {
+                "tau": "Torque experienced by the dipole",
+                "p": "Electric dipole moment",
+                "E": "Electric field vector"
+            }
+        },
+        "22-38": {
+            "name": "Potential energy of an electric dipole of dipole moment p, which is placed in an electric field E",
+            "content": "U = -np.dot(p, E)",
+            "variables": {
+                "U": "Potential energy of the dipole",
+                "p": "Dipole moment",
+                "E": "Electric field strength",
+                "theta": "Angle between p and E"
+            }
+        },
+        "22-0": {
+            "name": "The conversion of electrostatic constant k and permittivity constant epsilon_0, where epsilon_0 is approximately 8.85e-12 F/m and k is 8.99e9N*m^2/C^2",
+            "content": "K = 1 / (4 * pi * epsilon_0)"
+        }
+    },
+    "Gauss law": {
+        "23-6": {
+            "name": "Gauss Law, calculating net flux of an imaginary closed surface, in which q_end is the net charge, where epsilon_0 is approximately 8.85e-12 F/m",
+            "content": "Phi_E = q_enc / epsilon_0",
+            "variables": {
+                "Phi_E": "Electric flux through a closed surface",
+                "q_enc": "Net charge enclosed within the Gaussian surface",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)"
+            }
+        },
+        "23-11": {
+            "name": "Electric field near a charged conductor's surface, where sigma is the surface charge density, where epsilon_0 is approximately 8.85e-12 F/m",
+            "content": "E = sigma / epsilon_0",
+            "variables": {
+                "E": "Electric field near the surface",
+                "sigma": "Surface charge density",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)"
+            }
+        },
+        "23-12": {
+            "name": "Electric field at any point due to an infinite line of charge with uniform linear charge density l, where r is the perpendicular distance from the line to the point, where epsilon_0 is approximately 8.85e-12 F/m",
+            "content": "E = l / (2 * pi * epsilon_0 * r)",
+            "variables": {
+                "E": "Electric field magnitude",
+                "l": "Linear charge density",
+                "pi": "Mathematical constant Pi, approximately 3.14159",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)",
+                "r": "Perpendicular distance from the line of charge to the point"
+            }
+        },
+        "23-13": {
+            "name": "Electric field due to an infinite nonconducting sheet with uniform surface charge density sigma, where epsilon_0 is approximately 8.85e-12 F/m",
+            "content": "E = sigma / (2 * epsilon_0)",
+            "variables": {
+                "E": "Electric field magnitude",
+                "sigma": "Surface charge density",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)"
+            }
+        },
+        "23-15": {
+            "name": "Electric field outside a spherical shell of charge with radius R and total charge q, where epsolon_0 is approximately 8.85e-12 F/m",
+            "content": "E = q / (4 * pi * epsilon_0 * (r ** 2))",
+            "variables": {
+                "E": "Electric field outside the spherical shell",
+                "q": "Total charge on the shell",
+                "pi": "Mathematical constant Pi, approximately 3.14159",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)",
+                "r": "Distance from the center of the shell tp the point at which E is measured. r is required equal or bigger than radius"
+            }
+        },
+        "23-16": {
+            "name": "Electric field inside a spherical shell of charge is 0",
+            "content": "E = 0",
+            "variables": {
+                "E": "Electric field inside the shell"
+            }
+        },
+        "23-20": {
+            "name": "Electric field inside a uniform sphere of charge, where epsilon_0 is approximately 8.85e-12 F/m",
+            "content": "E = q * r / (4 * pi * epsilon_0 * (R ** 3))",
+            "variables": {
+                "E": "Electric field inside the sphere",
+                "pi": "Mathematical constant Pi, approximately 3.14159",
+                "epsilon_0": "Permittivity of free space, approximately 8.85 * 10^-12 F/m (farads per meter)",
+                "q": "Total charge uniformly distributed throughout the sphere",
+                "R": "Radius of the sphere",
+                "r": "Distance from the center of the sphere to the point where the field is measured"
+            }
+        },
+        "23-0": {
+            "name": "The conversion of electrostatic constant k and permittivity constant epsilon_0, where epsilon_0 is approximately 8.85e-12 F/m and k is 8.99e9N*m^2/C^2",
+            "content": "K = 1 / (4 * pi * epsilon_0)"
+        }
+    }
+}

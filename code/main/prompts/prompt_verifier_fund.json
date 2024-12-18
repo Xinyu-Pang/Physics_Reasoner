@@ -1,0 +1,100 @@
+{
+    "prompt_variables": [
+        {
+            "role": "system",
+            "content": "You are an excellent physics teacher. Given a physics problem and its extracted known variables, please examine the variables using the following checklist and revise it:\n\n**Checklist**:\n- Understand the problem, whether all known variables are extracted.\n- Whether the variable names are clear and can distinguish the different objects to which they may belong.\n- Whether the variables have been converted to SI units.\n- Check if the variables have confused vectors with scalars.\n\nReturn the correct known variables in the format of Python code, encasing it within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A playful astronaut releases a bowling ball, of mass m=7.20kg, into circular orbit about Earth at an altitude $h$ of $350 \\mathrm{~km}$.\r\nWhat is the mechanical energy $E$ of the ball in its orbit? The unit of the code is MJ **Variables**: ```import numpy as np\n\n# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nG = 6.67e-11  # gravitational constant in N*(m**2)/(kg**2)\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: the mass of the ball is not extracted, which should be added. **Code**: ```import numpy as np\n\n# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nm = 7.20  # mass of satellite in kg\nG = 6.67e-11  # gravitational constant in N*(m**2)/(kg**2)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The exists two charge, with charges of 1C and 2C respectively, separated by 1m. What is the electrostatic force between them? The unit of the code is N **Variables**: ```\n# Given parameters\nq = 1  # charge in C\nq = 2  # charge in C\nd = 1  # distance in m\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: the two charges are defined as the same symbol, leading to confusion, we should rename to distinguish them. **Code**: ```\n# Given parameters\nq1 = 1  # charge in C\nq2 = 2  # charge in C\nd = 1  # distance in m\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The exists two charge, with charges of 1C and 2C respectively, separated by 1cm. What is the electrostatic force between them? The unit of the code is N **Variables**: ```\n# Given parameters\nq = 1  # charge in C\nq = 2  # charge in C\nd = 1  # distance in cm\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: the distance is not converted to SI unit, we should convert it from cm to m. **Code**: ```\n# Given parameters\nq1 = 1  # charge in C\nq2 = 2  # charge in C\nd = 1e-2  # distance in m\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Let the disk with mass as 2.5kg, radius as 0.2m starts from rest at time t=0 and also let the tension in the massless cord be 6.0N and the angular acceleration of the disk be -24rad/s**2. What is its rotational kinetic energy K at t=2.5s? The unit of the code is J **Variables**: ```# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nm = 7.20  # mass of satellite in kg\nG = 6.67e-11  # gravitational constant in N*(m**2)/(kg**2)\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "No error. **Code**: ```# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nm = 7.20  # mass of satellite in kg\nG = 6.67e-11  # gravitational constant in N*(m**2)/(kg**2)\n```"
+        }
+    ],
+    "prompt_code": [
+        {
+            "role": "system",
+            "content": "You are an excellent physics teacher. Given a physics problem and its Python code, please review the code using the following checklist and improve it:\n\n**Checklist**:\n- If the problem text is correctly understood and solved.\n- Whether the calculation corresponds with correct, appropriate formulas.\n- Whether the variables and constants are correctly defined before use, ensuring that constants are not confused. For example, when calculating electronic field, do not confuse k and epsilon_0.\n- If the problem is solved, whether the code prints the first target variable at the end.\n- Check the unit, whether the target variable is printed in the required unit.\n- If used, make sure the constants k and epsilon_0 are not confused. k = 1 / (4 * pi * epsilon_0) = 8.99e9 N*m^2/C^2, where epsolon_0 = 8.85e-12 C^2/(N*m^2).\n- Check if the formula calculates the electric field or the electric force; do not confuse them.\n\nPlease reiterate your code and return the improved code. Encasing the code within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A playful astronaut releases a bowling ball, of mass m=7.20kg, into circular orbit about Earth at an altitude $h$ of $350 \\mathrm{~km}$.\r\nWhat is the mechanical energy $E$ of the ball in its orbit? The unit of the code is MJ **Code**: ```import numpy as np\n\n# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nm = 7.20  # mass of satellite in kg\n\n# Potential formulas\n# E = -G * M * m /(2 * r), Calculate mechanical energy in planetary motion, where G = 6.67 * 10**11 N*m**2/kg**2\n\n# Calculations\nr = R + h  # orbital radius\nE = -G * M * m / (2 * r)  # mechanical energy\n\nprint(E)```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: First, when calculating mechanical energy, G is used before definition. Also, the required unit if MJ, so the code should convert mechanical energy E unit from J to MJ.**Advice**: 1. Add G=6.67e11 before its usage. 2. convert E to E_MJ which is in MJ by E_MJ = E / 1e6 **Code**: ```import numpy as np\n\n# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nm = 7.20  # mass of satellite in kg\nG = 6.67e-11  # gravitational constant in N*(m**2)/(kg**2)\n\n# Potential formulas\n# E = -G * M * m /(2 * r), Calculate mechanical energy in planetary motion, where G = 6.67 * 10**11 N*m**2/kg**2\n\n# Calculations\nr = R + h  # orbital radius\nE = -G * M * m / (2 * r)  # mechanical energy\n\n# Convert to mega joules (MJ)\nE_MJ = E / 1e6\n\nprint(E_MJ)```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Let the disk with mass as 2.5kg, radius as 0.2m starts from rest at time t=0 and also let the tension in the massless cord be 6.0N and the angular acceleration of the disk be -24rad/s**2. What is its rotational kinetic energy K at t=2.5s? The unit of the code is J **Code**: ```\n# Given parameters\nM = 2.5  # mass in kg\nR = 0.20  # radius in m\nalpha = -24  # angular acceleration in rad/s^2\nt = 2.5  # time in s\n\n# Potential Formulas\n# w = w0 + a * t, calculate angular velocity with constant angular acceleration\n# I = M * (R ** 2) / 2, calculate rotational inertia of solid disk about central axis\n# K = I * (w ** 2) / 2, calculate rotational kinetic energy\n\n# Calculations\nw = alpha * t  # angular velocity\nI = 0.5 * M * R**2  # moment of inertia\nK = 0.5 * M * omega**2  # kinetic energy\n\nprint(K)```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: When calculating kinetic energy, the formula should be K = 0.5 * I * (omega **2)\n **Code**: ```\n# Given parameters\nM = 2.5  # mass in kg\nR = 0.20  # radius in m\nalpha = -24  # angular acceleration in rad/s^2\nt = 2.5  # time in s\n\n# Potential Formulas\n# w = w0 + a * t, calculate angular velocity with constant angular acceleration\n# I = M * (R ** 2) / 2, calculate rotational inertia of solid disk about central axis\n# K = I * (w ** 2) / 2, calculate rotational kinetic energy\n\n# Calculations\nw = alpha * t  # angular velocity\nI = 0.5 * M * R**2  # moment of inertia\nK = 0.5 * I * omega**2  # kinetic energy\n\nprint(K)```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Let the disk with mass as 2.5kg, radius as 0.2m starts from rest at time t=0 and also let the tension in the massless cord be 6.0N and the angular acceleration of the disk be -24rad/s**2. What is its rotational kinetic energy K at t=2.5s? The unit of the code is J **Code**: ```\n# Given parameters\nM = 2.5  # mass in kg\nR = 0.20  # radius in m\nalpha = -24  # angular acceleration in rad/s^2\nt = 2.5  # time in s\n\n# Potential Formulas\n# w = w0 + a * t, calculate angular velocity with constant angular acceleration\n# I = M * (R ** 2) / 2, calculate rotational inertia of solid disk about central axis\n# K = I * (w ** 2) / 2, calculate rotational kinetic energy\n\n# Calculations\nw = alpha * t  # angular velocity\nI = 2 * M * R**2  # moment of inertia\nK = 0.5 * I * omega**2  # kinetic energy\n\nprint(K)```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The code has 1 error. when calculating inertia moment, the code does not corresponds with formula. Correct calculation should be I = 0.5 * M * R**2 **Code**: ```\n# Given parameters\nM = 2.5  # mass in kg\nR = 0.20  # radius in m\nalpha = -24  # angular acceleration in rad/s^2\nt = 2.5  # time in s\n\n# Potential Formulas\n# w = w0 + a * t, calculate angular velocity with constant angular acceleration\n# I = M * (R ** 2) / 2, calculate rotational inertia of solid disk about central axis\n# K = I * (w ** 2) / 2, calculate rotational kinetic energy\n\n# Calculations\nw = alpha * t  # angular velocity\nI = 0.5 * M * R**2  # moment of inertia\nK = 0.5 * I * omega**2  # kinetic energy\n\nprint(K)```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A 2.00kg particle moves along an x axis in one-dimensional motion while a conservative force along that axis acts on it. The potential energy U(x) associated with the force is plotted in Fig. 8-10a. That is, if the particle were placed at any position between x=0 and x=7.00m, it would have the plotted value of U. At x=6.5m, the particle has velocity v_0=(-4.00 m/s)*i\nFrom Figure, determine the particle speed at x_1=4.5m. The unit of the code is m/s **Code**: ```\nimport numpy as np\n\n# Given parameters\nm = 2.00  # mass in kg\nv0 = 4.00  # initial velocity in m/s\nU0 = 0  # initial potential energy in J\nU1 = 7.0  # final potential energy in J\n\n# Potential formulas\n# K = m * v ** 2 / 2, calculate kinetic energy\n\nK0 = m * v0**2 / 2 # initial kinetic energy in J\nEmec = K0 + U0  # initial mechanical energy\nK1 = Emec - U1  # final kinetic energy\n\n# Because K1 = 0.5 * m * v1^2, we find v1\nv1 = np.sqrt(2 * K1 / m)  # final velocity\nprint(v1)```"
+        },
+        {
+            "role": "assistant",
+            "content": "No error **Code**: ```\nimport numpy as np\n\n# Given parameters\nm = 2.00  # mass in kg\nv0 = 4.00  # initial velocity in m/s\nU0 = 0  # initial potential energy in J\nU1 = 7.0  # final potential energy in J\n\n# Potential formulas\n# K = m * v ** 2 / 2, calculate kinetic energy\n\nK0 = m * v0**2 / 2 # initial kinetic energy in J\nEmec = K0 + U0  # initial mechanical energy\nK1 = Emec - U1  # final kinetic energy\n\n# Because K1 = 0.5 * m * v1^2, we find v1\nv1 = np.sqrt(2 * K1 / m)  # final velocity\nprint(v1)```"
+        }
+    ],
+    "prompt_code_electronics": [
+        {
+            "role": "system",
+            "content": "You are an excellent physics teacher. Given a electronics problem and its Python code, please examine the code using the following checklist and revise it:\n\n**Checklist**:\n- If the problem is about spherical shell of charge, recheck the calculation and make sure the electronic field inside the shell is 0, and the electronic field outside the shell is calculated by E = q / (4 * pi * epsilon_0 * (r ** 2))\n- Make sure the constants k and epsilon_0 are not confused. k = 1 / (4 * pi * epsilon_0) = 8.99e9 N*m^2/C^2, where epsolon_0 = 8.85e-12 C^2/(N*m^2)\n- Check if the formula calculates the electric field or the electric force; do not confuse them.\n\nReturn the correct complete code, encasing it within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A charged spherical shell with a charge of 1C and a radius of 2m, what is the electric field strength at a distance of 1m from the center? The unit of the code is N/C **Code**: ```import numpy as np\n\n# Given parameters\nq = 1  # charge of the shell in C\nR = 2  # radius of the shell in m\nr = 1  # distance from the center in m\n# Potential formulas\n# E = k * q /(r ** 2), Electric field outside a spherical shell of charge with radius R and total charge q, where epsolon_0 is approximately 8.85e-12 F/m\n\n# Calculations\nk = 8.85e-12\nE = k * q /(r ** 2)  # electronic field\n\nprint(E)```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: because r < R, the target electronic field is located within the sphere, so the electronic field should be 0. Also the definition of k is wrong, which should be 8.99e9 **Code**: ```import numpy as np\n\n# Given parameters\nq = 1  # charge of the shell in C\nR = 2  # radius of the shell in m\nr = 1  # distance from the center in m\n# Potential formulas\n# E = k * q /(r ** 2), Electric field outside a spherical shell of charge with radius R and total charge q, where epsolon_0 is approximately 8.85e-12 F/m\n\n# Calculations\nk = 8.99e9\nE = 0  # electronic field\n\nprint(E)```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A charged spherical shell with a charge of 1C and a radius of 2m, what is the electric field strength at a distance of 4m from the center? The unit of the code is N/C **Code**: ```import numpy as np\n\n# Given parameters\nq = 1  # charge of the shell in C\nR = 2  # radius of the shell in m\nr = 1  # distance from the center in m\n# Potential formulas\n# E = k * q /(r ** 2), Electric field outside a spherical shell of charge with radius R and total charge q, where epsolon_0 is approximately 8.85e-12 F/m\n\n# Calculations\nk = 8.85e-12\nE = k * q /(r ** 2)  # electronic field\n\nprint(E)```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: the definition of k is wrong. k should be 8.99e9 **Code**: ```import numpy as np\n\n# Given parameters\nq = 1  # charge of the shell in C\nR = 2  # radius of the shell in m\nr = 4  # distance from the center in m\n# Potential formulas\n# E = k * q /(r ** 2), Electric field outside a spherical shell of charge with radius R and total charge q, where epsolon_0 is approximately 8.85e-12 F/m\n\n# Calculations\nk = 8.99e9\nE = k * q /(r ** 2)  # electronic field\n\nprint(E)```"
+        }
+    ]
+}

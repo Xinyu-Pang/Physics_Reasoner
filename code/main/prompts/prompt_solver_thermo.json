@@ -1,0 +1,154 @@
+{
+    "prompt_ext_vars": [
+        {
+            "role": "system",
+            "content": "\nYou are an excellent student major in physics. Given a physics problem, please extract known variables from it in the format of Python code. The problem is intended to cover general topics within electromagnetics and mechanics, sourced from a college-level textbook, and it requires analytical reasoning in physics. \nThe extracted variables should be well-named to represent the objects to which they belong, and should be well-annotated with comments that provide sufficient explanations of the variables defined, including their units. Encase the python code within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Determine the standard molar entropy of Kr under standard thermodynamic conditions. The unit of the answer is  J/mol.K."
+        },
+        {
+            "role": "assistant",
+            "content": "```import math\n\n# Define the constants\nR = 8.314  # in J/mol.K\nV_m = 24.4 * 10**-3  # in m^3\nT = 298  # in K\nh = 6.626 * 10**-34  # in J.s\nk = 1.38 * 10**-23  # in J/K\nm_Kr = 83.75 * 10 **-3 / (6.022 * 10**23) # change from g to kg\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: In this problem, 3.00 mol of liquid mercury is transformed from an initial state characterized by T_i=300K and P_i=1.00 bar to a final state characterized by T_f=600K and P_f=3.00 bar.\r\na. Calculate Delta S for this process; beta=1.81*10^-4 K^-1, rho=13.54 g/cm**3, and C_{P, m} for Hg(l)=27.98 J/(mol*K). The unit of the answer is  J/K."
+        },
+        {
+            "role": "assistant",
+            "content": "```import math\n\n# Define the constants\nn = 3.00  # in mol\nC_P_m = 27.98  # in J/mol/K\nT_i = 300.0  # in K\nT_f = 600.0  # in K\nV_m_i = 200.59 / (13.54 * 10**6)  # in m^3/mol\nbeta = 1.81 * 10**-4  # in K^-1\nP_i = 0.0  # in bar\nP_f = 2.00  # in bar\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: For an ensemble consisting of 1.00 moles of particles having two energy levels separated by h v=1.00 * 10^-20 J, at what temperature will the internal energy of this system equal 1.00 kJ ? The unit of the answer is  K."
+        },
+        {
+            "role": "assistant",
+            "content": "```import math\n\n# Define the constants\nn = 1.00  # in mol\nN_A = 6.022 * 10**23  # in mol^-1\nh_nu = 1.00 * 10**-20  # in J\nU = 1.00 * 10**3  # in J\nk = 1.38 * 10**-23  # in J/K\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The sedimentation coefficient of lysozyme (M=14,100 g/mol) in water at 20 degree celsius is 1.91*10^-13 s and the specific volume is 0.703 cm**3/g. The density of water at this temperature is 0.998 g/cm**3 and eta=1.002 cP. Assuming lysozyme is spherical, what is the radius of this protein? The unit of the answer is nm."
+        },
+        {
+            "role": "assistant",
+            "content": "```import math\n\n# Define the constants\nm = 14100 / (6.022 * 10**23)  # in g\nV_bar = 0.703  # in mL/g\nrho = 0.998  # in g/mL\ns_bar = 1.91 * 10**-13  # in s\neta = 1.002  # in g/m.s\n```"
+        }
+    ],
+    "prompt_retr_subfields": [
+        {
+            "role": "system",
+            "content": "You are an excellent student major in physics, given a physics problem, which could be related with several subfields of physics, including: ['Gas Laws', 'Macro Heat, Work', 'Gibbs free', 'Entropy', 'Mixture of Gases or Liquid', 'Equilibrium of reaction', 'Translational Partition Function', 'FRET efficiency', 'Rate of reation', 'Enthalpy', 'Clausius-Clapeyron equation', 'Boltzman Distribution', 'Kinetic theory of gases', 'Transport Phenomena', 'Electrolyte Solutions', 'Statistical Thermodynamics'], please determine and return relevant subject(s) from the probided list."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: In this problem, 3.00 mol of liquid mercury is transformed from an initial state characterized by T_i=300K and P_i=1.00 bar to a final state characterized by T_f=600K and P_f=3.00 bar.\r\na. Calculate Delta S for this process; beta=1.81*10^-4 K^-1, rho=13.54 g/cm**3, and C_{P, m} for Hg(l)=27.98 J/(mol*K)"
+        },
+        {
+            "role": "assistant",
+            "content": "Entropy"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: For an ensemble consisting of 1.00 moles of particles having two energy levels separated by h v=1.00 * 10^-20 J, at what temperature will the internal energy of this system equal 1.00 kJ ?"
+        },
+        {
+            "role": "assistant",
+            "content": "Statistical Thermodynamics, Boltzman Distribution"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The sedimentation coefficient of lysozyme (M=14,100 g/mol) in water at 20 degree celsius is 1.91*10^-13 s and the specific volume is 0.703 cm**3/g. The density of water at this temperature is 0.998 g/cm**3 and eta=1.002 cP. Assuming lysozyme is spherical, what is the radius of this protein?"
+        },
+        {
+            "role": "assistant",
+            "content": "Transport Phenomena"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Determine the standard molar entropy of Kr under standard thermodynamic conditions."
+        },
+        {
+            "role": "assistant",
+            "content": "Statistical Thermodynamics, Entropy"
+        }
+    ],
+    "prompt_retr_for": [
+        {
+            "role": "system",
+            "content": "\nYou are an excellent student major in physics, given a physics problem, please identify and retrieve relevant formulas. And Annotate these relevant formulas in Python comments format and encase the Python code within triple backticks for clarity."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: In this problem, 3.00 mol of liquid mercury is transformed from an initial state characterized by T_i=300K and P_i=1.00 bar to a final state characterized by T_f=600K and P_f=3.00 bar.\r\na. Calculate Delta S for this process; beta=1.81*10^-4 K^-1, rho=13.54 g/cm**3, and C_{P, m} for Hg(l)=27.98 J/(mol*K).**Possible formulas**: {'Entropy':[{'name': 'entropy change of a system', 'content': 'deltaS = q/T'}, {'name': 'Sackur-Tetrode equation', 'content': 'S = N * k * (math.log(V / N / lambda**3) + 5/2)'}, {'name': 'entropy change of a reaction like aA + bB -> cC + dD', 'content': 'deltaS = c * S(C) + d * S(D) - a * S(A) - b * S(B)'}, {'name': 'Delta S for liquid mercury', 'content': 'Delta_S = n * C_P_m * math.log(T_f/T_i) - n * V_m_i * beta * (P_f - P_i)'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n# Potential formulas\n# Delta_S = n * C_P_m * math.log(T_f/T_i) - n * V_m_i * beta * (P_f - P_i), calculate Delta S for liquid mercury```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: For an ensemble consisting of 1.00 moles of particles having two energy levels separated by h v=1.00 * 10^-20 J, at what temperature will the internal energy of this system equal 1.00 kJ ? **Possible formulas**: {'Statistical Thermodynamics': [{'name': 'Molar constant volume heat capacity formula', 'content': 'C_v = C_trans + C_rot + C_vib'}, {'name': 'the reltaion between the internal energy and the gap of two energy levels', 'content': 'T = h_nu / (k * math.log((n * N_A * h_nu / U) - 1))'}, {'name': 'thermal wavelength for a particle', 'content': 'lambda_thermo = (h**2 / (2 * math.pi * m * k * T))**0.5'}],'Boltzman Distribution':[{'name': 'Energy difference conversion given energy levels gap', 'content': 'delta_E = nu = h * c * delta_x'}, {'name': 'Boltzmann distribution formula', 'content': 'N2 / N1 = exp(-delta_E / (kB * T))'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# T = h_nu / (k * math.log((n * N_A * h_nu / U) - 1)), calculate temperature due to the reltaion between the internal energy and the gap of two energy levels```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The sedimentation coefficient of lysozyme (M=14,100 g/mol) in water at 20 degree celsius is 1.91*10^-13 s and the specific volume is 0.703 cm**3/g. The density of water at this temperature is 0.998 g/cm**3 and eta=1.002 cP. Assuming lysozyme is spherical, what is the radius of this protein?**Possible formulas**: {'Transport Phenomena': [{'name': 'diffusion coefficient', 'content': 'D = 1/3 * sqrt(8 * R * T / (pi * M)) * (R * T / (P * NA * 2**0.5 * s_collision))'}, {'name': 'relation between terminal velocity centrifugation, and the sedimentation coefficient', 'content': 's = m * (1 - v * rho) / f'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# s = m * (1 - v * rho) / f, calculate f```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Determine the standard molar entropy of Kr under standard thermodynamic conditions. **Possible formulas**: {'Statistical Thermodynamics': [{'name': 'Molar constant volume heat capacity formula', 'content': 'C_v = C_trans + C_rot + C_vib'}, {'name': 'the reltaion between the internal energy and the gap of two energy levels', 'content': 'T = h_nu / (k * math.log((n * N_A * h_nu / U) - 1))'}, {'name': 'thermal wavelength for a particle', 'content': 'lambda_thermo = (h**2 / (2 * math.pi * m * k * T))**0.5'}],'Entropy':[{'name': 'entropy change of a system', 'content': 'deltaS = q/T'}, {'name': 'Sackur-Tetrode equation', 'content': 'S = N * k * (math.log(V / N / lambda**3) + 5/2)'}, {'name': 'entropy change of a reaction like aA + bB -> cC + dD', 'content': 'deltaS = c * S(C) + d * S(D) - a * S(A) - b * S(B)'}, {'name': 'Delta S for liquid mercury', 'content': 'Delta_S = n * C_P_m * math.log(T_f/T_i) - n * V_m_i * beta * (P_f - P_i)'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# lambda_thermo = (h**2 / (2 * math.pi * m * k * T))**0.5', calculate lambda of the particle```"
+        }
+    ],
+    "prompt_gen_code": [
+        {
+            "role": "system",
+            "content": "You are an excellent student major in physics, given a physics problem and its incomplete Python code, please think and complete the code. Print the target variable at the end if the problem has been solved. If there exist more than 1 target variables, print the first one. Remember to check whether the formulas are correctly used. And check whether the variable is printed with the required unit. Return the complete Python code and ensure it within triple backticks for clarity."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Determine the standard molar entropy of Kr under standard thermodynamic conditions. The unit of the answer is  J/mol.K. **Incomplete python code**: ```\nimport math\n\n# Define the constants\nR = 8.314  # in J/mol.K\nV_m = 24.4 * 10**-3  # in m^3\nT = 298  # in K\nh = 6.626 * 10**-34  # in J.s\nk = 1.38 * 10**-23  # in J/K\nm_Kr = 83.75 * 10 **-3 / (6.022 * 10**23) # change from g to kg\n\n# Potential formulas\n# lambda_thermo = (h**2 / (2 * math.pi * m * k * T))**0.5', calculate lambda of the particle```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n\n# Define the constants\nR = 8.314  # in J/mol.K\nV_m = 24.4 * 10**-3  # in m^3\nT = 298  # in K\nh = 6.626 * 10**-34  # in J.s\nk = 1.38 * 10**-23  # in J/K\nm_Kr = 83.75 * 10 **-3 / (6.022 * 10**23) # change from g to kg\n\n# Potential formulas\n# lambda_thermo = (h**2 / (2 * math.pi * m * k * T))**0.5', calculate lambda of the particle\n# Calculate Lambda for Kr\nLambda_Kr = (h**2 / (2 * math.pi * m_Kr * k * T))**0.5  # in m\n\n# Calculate S for Kr\nS_Kr = R * math.log(V_m / Lambda_Kr**3) - 52.25 * R  # in J/mol.K\nprint(S_Kr)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: In this problem, 3.00 mol of liquid mercury is transformed from an initial state characterized by T_i=300K and P_i=1.00 bar to a final state characterized by T_f=600K and P_f=3.00 bar.\r\na. Calculate Delta S for this process; beta=1.81*10^-4 K^-1, rho=13.54 g/cm**3, and C_{P, m} for Hg(l)=27.98 J/(mol*K). The unit of the answer is  J/K. **Incomplete python code**: ```\nimport math\n\n# Define the constants\nn = 3.00  # in mol\nC_P_m = 27.98  # in J/mol/K\nT_i = 300.0  # in K\nT_f = 600.0  # in K\nV_m_i = 200.59 / (13.54 * 10**6)  # in m^3/mol\nbeta = 1.81 * 10**-4  # in K^-1\nP_i = 0.0  # in bar\nP_f = 2.00  # in bar\n\n# Potential formulas\n# Delta_S = n * C_P_m * math.log(T_f/T_i) - n * V_m_i * beta * (P_f - P_i), calculate Delta S for liquid mercury```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n\n# Define the constants\nn = 3.00  # in mol\nC_P_m = 27.98  # in J/mol/K\nT_i = 300.0  # in K\nT_f = 600.0  # in K\nV_m_i = 200.59 / (13.54 * 10**6)  # in m^3/mol\nbeta = 1.81 * 10**-4  # in K^-1\nP_i = 0.0  # in bar\nP_f = 2.00  # in bar\n\n# Potential formulas\n# Delta_S = n * C_P_m * math.log(T_f/T_i) - n * V_m_i * beta * (P_f - P_i), calculate Delta S for liquid mercury\n# Calculate ΔS\ndelta_S = n * C_P_m * math.log(T_f/T_i) - n * V_m_i * beta * (P_f - P_i) * 10**5\nprint(delta_S)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: For an ensemble consisting of 1.00 moles of particles having two energy levels separated by h v=1.00 * 10^-20 J, at what temperature will the internal energy of this system equal 1.00 kJ ? The unit of the answer is  K. **Incomplete python code**: ```\nimport math\n\n# Define the constants\nn = 1.00  # in mol\nN_A = 6.022 * 10**23  # in mol^-1\nh_nu = 1.00 * 10**-20  # in J\nU = 1.00 * 10**3  # in J\nk = 1.38 * 10**-23  # in J/K\n\n# Potential formulas\n# T = h_nu / (k * math.log((n * N_A * h_nu / U) - 1)), calculate temperature due to the reltaion between the internal energy and the gap of two energy levels```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n\n# Define the constants\nn = 1.00  # in mol\nN_A = 6.022 * 10**23  # in mol^-1\nh_nu = 1.00 * 10**-20  # in J\nU = 1.00 * 10**3  # in J\nk = 1.38 * 10**-23  # in J/K\n\n# Potential formulas\n# T = h_nu / (k * math.log((n * N_A * h_nu / U) - 1)), calculate temperature due to the reltaion between the internal energy and the gap of two energy levels\n# Calculate T\nT = h_nu / (k * math.log((n * N_A * h_nu / U) - 1))\nprint(T)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The sedimentation coefficient of lysozyme (M=14,100 g/mol) in water at 20 degree celsius is 1.91*10^-13 s and the specific volume is 0.703 cm**3/g. The density of water at this temperature is 0.998 g/cm**3 and eta=1.002 cP. Assuming lysozyme is spherical, what is the radius of this protein? The unit of the answer is nm. **Incomplete python code**: ```\nimport math\n\n# Define the constants\nm = 14100 / (6.022 * 10**23)  # in g\nV_bar = 0.703  # in mL/g\nrho = 0.998  # in g/mL\ns_bar = 1.91 * 10**-13  # in s\neta = 1.002  # in g/m.s\n\n# Potential formulas\n# s = m * (1 - v * rho) / f, calculate f```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\nimport math\n\n# Define the constants\nm = 14100 / (6.022 * 10**23)  # in g\nV_bar = 0.703  # in mL/g\nrho = 0.998  # in g/mL\ns_bar = 1.91 * 10**-13  # in s\neta = 1.002  # in g/m.s\n\n# Potential formulas\n# s = m * (1 - v * rho) / f, calculate f\n# Calculate f\nf = m * (1 - V_bar * rho) / s_bar  # in g/s\n\n# Calculate r\nr = f / (6 * math.pi * eta)  # in m\nr_nm = r * 10**9  # convert to nm\nprint(r_nm)\n\n```"
+        }
+    ]
+}

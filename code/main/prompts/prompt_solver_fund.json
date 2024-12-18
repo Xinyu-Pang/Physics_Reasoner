@@ -1,0 +1,154 @@
+{
+    "prompt_ext_vars": [
+        {
+            "role": "system",
+            "content": "\nYou are an excellent student major in physics. Given a physics problem, please extract known variables from it in the format of Python code. The problem is intended to cover general topics within electromagnetics and mechanics, sourced from a college-level textbook, and it requires analytical reasoning in physics. \nThe extracted variables should be well-named to represent the objects to which they belong, and should be well-annotated with comments that provide sufficient explanations of the variables defined, including their units. Encase the python code within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A 2.00kg particle moves along an x axis in one-dimensional motion while a conservative force along that axis acts on it. The potential energy U(x) associated with the force is plotted in Fig. 8-10a. That is, if the particle were placed at any position between x=0 and x=7.00m, it would have the plotted value of U. At x=6.5m, the particle has velocity v_0=(-4.00 m/s)*i\nFrom Figure, determine the particle's speed at x_1=4.5m. The unit of the answer is  m/s."
+        },
+        {
+            "role": "assistant",
+            "content": "```import numpy as np\n\n# Given parameters\nm = 2.00  # mass in kg\nv0 = 4.00  # initial velocity in m/s\nU0 = 0  # initial potential energy in J\nU1 = 7.0  # final potential energy in J```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A playful astronaut releases a bowling ball, of mass m=7.20kg, into circular orbit about Earth at an altitude $h$ of $350 \\mathrm{~km}$.\r\nWhat is the mechanical energy $E$ of the ball in its orbit? The unit of the answer is  MJ."
+        },
+        {
+            "role": "assistant",
+            "content": "```import numpy as np\n\n# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nm = 7.20  # mass of satellite in kg\nG = 6.67e-11  # gravitational constant in N*(m**2)/(kg**2)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Let the disk with mass as 2.5kg, radius as 0.2m starts from rest at time t=0 and also let the tension in the massless cord be 6.0N and the angular acceleration of the disk be -24rad/s**2. What is its rotational kinetic energy K at t=2.5s? The unit of the answer is  J."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Given parameters\nM = 2.5  # mass in kg\nR = 0.20  # radius in m\nalpha = -24  # angular acceleration in rad/s^2\nt = 2.5  # time in s```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A food shipper pushes a wood crate of cabbage heads (total mass m=14kg ) across a concrete floor with a constant horizontal force F of magnitude 40N. In a straight-line displacement of magnitude d=0.50m, the speed of the crate decreases from v_0=0.60m/s to v=0.20m/s. Work done by the force on the system is W=20J. What is the increase Delta E_th in the thermal energy of the crate and floor? The unit of the answer is  J."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Given parameters\nW = 20  # work in J\nm = 14  # mass in kg\nv = 0.20  # final velocity in m/s\nv0 = 0.60  # initial velocity in m/s```"
+        }
+    ],
+    "prompt_retr_subfields": [
+        {
+            "role": "system",
+            "content": "You are an excellent student major in physics, given a physics problem, which could be related with several subfields of physics, including: [Kinetic energy, Potential energy, Rotation, Gravitation, Coulomb law, Electric field, Gauss law], please determine and return relevant subject(s) from the probided list."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A 2.00kg particle moves along an x axis in one-dimensional motion while a conservative force along that axis acts on it. The potential energy U(x) associated with the force is plotted in Fig. 8-10a. That is, if the particle were placed at any position between x=0 and x=7.00m, it would have the plotted value of U. At x=6.5m, the particle has velocity v_0=(-4.00 m/s)*i\nFrom Figure, determine the particle's speed at x_1=4.5m."
+        },
+        {
+            "role": "assistant",
+            "content": "Kinetic energy"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A playful astronaut releases a bowling ball, of mass m=7.20kg, into circular orbit about Earth at an altitude $h$ of $350 \\mathrm{~km}$.\r\nWhat is the mechanical energy $E$ of the ball in its orbit?"
+        },
+        {
+            "role": "assistant",
+            "content": "Gravitation"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Let the disk with mass as 2.5kg, radius as 0.2m starts from rest at time t=0 and also let the tension in the massless cord be 6.0N and the angular acceleration of the disk be -24rad/s**2. What is its rotational kinetic energy K at t=2.5s?"
+        },
+        {
+            "role": "assistant",
+            "content": "Rotation"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A food shipper pushes a wood crate of cabbage heads (total mass m=14kg ) across a concrete floor with a constant horizontal force F of magnitude 40N. In a straight-line displacement of magnitude d=0.50m, the speed of the crate decreases from v_0=0.60m/s to v=0.20m/s. Work done by the force on the system is W=20J. What is the increase Delta E_th in the thermal energy of the crate and floor?"
+        },
+        {
+            "role": "assistant",
+            "content": "Potential energy, Kinetic energy"
+        }
+    ],
+    "prompt_retr_for": [
+        {
+            "role": "system",
+            "content": "\nYou are an excellent student major in physics, given a physics problem, please identify and retrieve relevant formulas. And Annotate these relevant formulas in Python comments format and encase the Python code within triple backticks for clarity."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A 2.00kg particle moves along an x axis in one-dimensional motion while a conservative force along that axis acts on it. The potential energy U(x) associated with the force is plotted in Fig. 8-10a. That is, if the particle were placed at any position between x=0 and x=7.00m, it would have the plotted value of U. At x=6.5m, the particle has velocity v_0=(-4.00 m/s)*i\nFrom Figure, determine the particle's speed at x_1=4.5m.. **Possible formulas**: {'Kinetic energy': [{'name': 'Kinetic_Energy', 'content': 'K = m * (v ** 2) / 2'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# K = m * v ** 2 / 2, calculate kinetic energy```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A playful astronaut releases a bowling ball, of mass m=7.20kg, into circular orbit about Earth at an altitude $h$ of $350 \\mathrm{~km}$.\r\nWhat is the mechanical energy $E$ of the ball in its orbit?. **Possible formulas**: {'Gravitation': [{'name': 'Mechanical_Energy_in_Planetary_Motion', 'content': 'E = - G * M * m / (2 * r)'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# E = -G * M * m /(2 * r), Calculate mechanical energy in planetary motion, where G = 6.67 * 10**11 N*m**2/kg**2```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Let the disk with mass as 2.5kg, radius as 0.2m starts from rest at time t=0 and also let the tension in the massless cord be 6.0N and the angular acceleration of the disk be -24rad/s**2. What is its rotational kinetic energy K at t=2.5s?. **Possible formulas**: {'Rotation': [{'name': 'Angular_Velocity_with_Constant_Angular_Acceleration', 'content': 'w = w0 + a * t'}, {'name': 'Rotational_Inertia_of_solid_disk_about_central_axis', 'content': 'I = M * R ** 2 / 2'}, {'name': 'Rotational_Kinetic_Energy', 'content': 'K = I * (w ** 2) / 2'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential Formulas\n# w = w0 + a * t, calculate angular velocity with constant angular acceleration\n# I = M * (R ** 2) / 2, calculate rotational inertia of solid disk about central axis\n# K = I * (w ** 2) / 2, calculate rotational kinetic energy```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A food shipper pushes a wood crate of cabbage heads (total mass m=14kg ) across a concrete floor with a constant horizontal force F of magnitude 40N. In a straight-line displacement of magnitude d=0.50m, the speed of the crate decreases from v_0=0.60m/s to v=0.20m/s. Work done by the force on the system is W=20J. What is the increase Delta E_th in the thermal energy of the crate and floor?. **Possible formulas**: {'Kinetic energy': [{'name': 'Kinetic_Energy', 'content': 'K = m * (v ** 2) / 2'}], 'Potential energy': [{'name': 'Work_done_on_a_System_by_an_External_Force', 'content': 'W = delta_E_mec + delta_E_th'}]}."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Potential formulas\n# W = delta_E_mec + delta_E_th, calculate work done on a system by an external force\n# K = m * v ** 2 / 2, calculate kinetic energy```"
+        }
+    ],
+    "prompt_gen_code": [
+        {
+            "role": "system",
+            "content": "You are an excellent student major in physics, given a physics problem and its incomplete Python code, please think and complete the code. Print the target variable at the end if the problem has been solved. If there exist more than 1 target variables, print the first one. Remember to check whether the formulas are correctly used. And check whether the variable is printed with the required unit. Return the complete Python code and ensure it within triple backticks for clarity."
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A 2.00kg particle moves along an x axis in one-dimensional motion while a conservative force along that axis acts on it. The potential energy U(x) associated with the force is plotted in Fig. 8-10a. That is, if the particle were placed at any position between x=0 and x=7.00m, it would have the plotted value of U. At x=6.5m, the particle has velocity v_0=(-4.00 m/s)*i\nFrom Figure, determine the particle's speed at x_1=4.5m.. The unit of the answer is  m/s. **Incomplete python code**: ```import numpy as np\n\n# Given parameters\nm = 2.00  # mass in kg\nv0 = 4.00  # initial velocity in m/s\nU0 = 0  # initial potential energy in J\nU1 = 7.0  # final potential energy in J\n\n# Potential formulas\n# K = m * v ** 2 / 2, calculate kinetic energy```."
+        },
+        {
+            "role": "assistant",
+            "content": "```import numpy as np\n\n# Given parameters\nm = 2.00  # mass in kg\nv0 = 4.00  # initial velocity in m/s\nU0 = 0  # initial potential energy in J\nU1 = 7.0  # final potential energy in J\n\n# Potential formulas\n# K = m * v ** 2 / 2, calculate kinetic energy\n# Calculations\nK0 = 0.5 * m * v0**2  # initial kinetic energy\nEmec = K0 + U0  # initial mechanical energy\nK1 = Emec - U1  # final kinetic energy\n\n# Because K1 = 0.5 * m * v1^2, we find v1\nv1 = np.sqrt(2 * K1 / m)  # final velocity\n\nprint(v1)```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A playful astronaut releases a bowling ball, of mass m=7.20kg, into circular orbit about Earth at an altitude $h$ of $350 \\mathrm{~km}$.\r\nWhat is the mechanical energy $E$ of the ball in its orbit?. The unit of the answer is  MJ. **Incomplete python code**: ```import numpy as np\n\n# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nm = 7.20  # mass of satellite in kg\nG = 6.67e-11  # gravitational constant in N*(m**2)/(kg**2)\n\n\n# Potential formulas\n# E = -G * M * m /(2 * r), Calculate mechanical energy in planetary motion, where G = 6.67 * 10**11 N*m**2/kg**2```."
+        },
+        {
+            "role": "assistant",
+            "content": "```import numpy as np\n\n# Given parameters\nR = 6370e3  # radius of Earth in m\nh = 350e3  # altitude in m\nM = 5.98e24  # mass of Earth in kg\nm = 7.20  # mass of satellite in kg\nG = 6.67e-11  # gravitational constant in N*(m**2)/(kg**2)\n\n\n# Potential formulas\n# E = -G * M * m /(2 * r), Calculate mechanical energy in planetary motion, where G = 6.67 * 10**11 N*m**2/kg**2\n# Calculations\nr = R + h  # orbital radius\nE = -G * M * m / (2 * r)  # mechanical energy\n\n# Convert to mega joules (MJ)\nE_MJ = E / 1e6\n\nprint(E_MJ)```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Let the disk with mass as 2.5kg, radius as 0.2m starts from rest at time t=0 and also let the tension in the massless cord be 6.0N and the angular acceleration of the disk be -24rad/s**2. What is its rotational kinetic energy K at t=2.5s?. The unit of the answer is  J. **Incomplete python code**: ```\n# Given parameters\nM = 2.5  # mass in kg\nR = 0.20  # radius in m\nalpha = -24  # angular acceleration in rad/s^2\nt = 2.5  # time in s\n\n# Potential Formulas\n# w = w0 + a * t, calculate angular velocity with constant angular acceleration\n# I = M * (R ** 2) / 2, calculate rotational inertia of solid disk about central axis\n# K = I * (w ** 2) / 2, calculate rotational kinetic energy```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Given parameters\nM = 2.5  # mass in kg\nR = 0.20  # radius in m\nalpha = -24  # angular acceleration in rad/s^2\nt = 2.5  # time in s\n\n# Potential Formulas\n# w = w0 + a * t, calculate angular velocity with constant angular acceleration\n# I = M * (R ** 2) / 2, calculate rotational inertia of solid disk about central axis\n# K = I * (w ** 2) / 2, calculate rotational kinetic energy\n\n# Calculations\nomega = alpha * t  # angular velocity\nI = 0.5 * M * R**2  # moment of inertia\nK = 0.5 * I * omega**2  # kinetic energy\n\nprint(K)```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A food shipper pushes a wood crate of cabbage heads (total mass m=14kg ) across a concrete floor with a constant horizontal force F of magnitude 40N. In a straight-line displacement of magnitude d=0.50m, the speed of the crate decreases from v_0=0.60m/s to v=0.20m/s. Work done by the force on the system is W=20J. What is the increase Delta E_th in the thermal energy of the crate and floor?. The unit of the answer is  J. **Incomplete python code**: ```\n# Given parameters\nW = 20  # work in J\nm = 14  # mass in kg\nv = 0.20  # final velocity in m/s\nv0 = 0.60  # initial velocity in m/s\n\n# Potential formulas\n# W = delta_E_mec + delta_E_th, calculate work done on a system by an external force\n# K = m * v ** 2 / 2, calculate kinetic energy```."
+        },
+        {
+            "role": "assistant",
+            "content": "```\n# Given parameters\nW = 20  # work in J\nm = 14  # mass in kg\nv = 0.20  # final velocity in m/s\nv0 = 0.60  # initial velocity in m/s\n\n# Potential formulas\n# W = delta_E_mec + delta_E_th, calculate work done on a system by an external force\n# K = m * v ** 2 / 2, calculate kinetic energy\n# Calculations\ndelta_E_mec = 0.5 * m * v**2 - 0.5 * m * v0**2  # change in mechanical energy\ndelta_E_th = W - delta_E_mec  # change in thermal energy\n\nprint(delta_E_th)```"
+        }
+    ]
+}

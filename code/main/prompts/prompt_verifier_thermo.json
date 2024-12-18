@@ -1,0 +1,78 @@
+{
+    "prompt_variables": [
+        {
+            "role": "system",
+            "content": "You are an excellent physics teacher. Given a physics problem and its extracted known variables, please examine the variables using the following checklist and revise it. Notice that you should review the code only if you confirm the solution is wrong, most of the time the solution is already right:\n\n**Checklist**:\n- Understand the problem, whether all known variables are extracted.\n- Whether the variable names are clear and can distinguish the different objects to which they may belong.\n- Whether some relevant const variables are provided as common knowledge.\n- Whether all variables are clearly defined with their units. Ensure that the units are reflected in the comments. Differentiate between different units of the same dimension, such as atm, bar, and Pa. If you convert one unit, make all same dimension have the only unit.\n- Once a unit is converted when the variable is defined, make sure it is converted correctly, such as molar mass should be multiplied by 10^-3 when converted from g/mol to kg/mol.\n- Once a unit is used for a variable, ensure that all other related variables are consistent with that unit, if can't, just convert the initial unit to SI unit.\n\nReturn the correct known variables in the format of Python code, encasing it within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: Determine the standard molar entropy of Kr under standard thermodynamic conditions. The unit of the answer is  J/mol.K.**Variables**: ```import math\n\n# Define the constants\nR = 8.314  # in J/mol.K\nV_m = 24.4 * 10**-3  # in m^3\nT = 298  # in K\nh = 6.626 * 10**-34  # in J.s\nk = 1.38 * 10**-23  # in J/K\nm_Kr = 83.75 / (6.022 * 10**23) # in g\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: Since m_Kr will be directly used with energy with the unit of J, it should be converted to kg to keep consistent with SI unit. **Code**: ```import math\n\n# Define the constants\nR = 8.314  # in J/mol.K\nV_m = 24.4 * 10**-3  # in m^3\nT = 298  # in K\nh = 6.626 * 10**-34  # in J.s\nk = 1.38 * 10**-23  # in J/K\nm_Kr = 83.75 * 10 ** -3 / (6.022 * 10**23) # in kg\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A cylinder filled with pure oxygen has a volume of 1L, a temperature of 25°C, and a pressure of 3 atm. Calculate the mass of the oxygen. The unit of the answer is  g. **Variables**: ```\nimport math\n\n# given constants\nV_O2 = 1  # in L\nT = 25  # in °C\nP = 3.00  # in atm\nR = 8.314  # in J/mol/K\n\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The code has 3 errors. 1. When using the ideal gas formula, the temperature should be converted to K instead of °C\n2. While the volume and the pressure are extracted with the unit L and atm, the R should be consistent with them. 3. the standard molar mass of O2 is not provided as common knowledge.**Code**: ```\nimport math\n\n# given constants\nV_O2 = 1  # in L\nT = 25 + 273.15  # in K\nP = 3.00  # in atm\nR = 0.0821  # in atm L / mol K\nm_O2 = 32  # in g/mol\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: In a closed container, there are three different gases: nitrogen (N₂), oxygen (O₂), and carbon dioxide (CO₂). Their partial pressures are 250 torr, 350 torr, and 150 torr, respectively. Find the total pressure of the gas mixture. The unit is atm. **Variables**: ```\n# Given parameters\np_N2 = 250/760  # in atm  # partial pressure of nitrogen in torr\np_O2 = 350 # in Torr\np_CO2 = 150  # in torr\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: Since unit of the pressure of N2 is converted to atm, the other two units should also be converted to atm by divided by 760.**Code**: ```\n# Given parameters\np_N2 = 250/760  # in atm  # partial pressure of nitrogen in torr\np_O2 = 350/760 # in atm\np_CO2 = 150/760  # in atm\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: The sedimentation coefficient of lysozyme (M=14,100 g/mol) in water at 20 degree celsius is 1.91*10^-13 s and the specific volume is 0.703 cm**3/g. The density of water at this temperature is 0.998 g/cm**3 and eta=1.002 cP. Assuming lysozyme is spherical, what is the radius of this protein? The unit of the answer is nm.**Variables**: ```\nimport math\n\n# Define the constants\nm = 14100 / (6.022 * 10**23)  # in g\nV_bar = 0.703  # in mL/g\nrho = 0.998  # in g/mL\ns_bar = 1.91 * 10**-13  # in s\neta = 1.002  # in g/m.s\n\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "No error. **Code**: ```\nimport math\n\n# Define the constants\nm = 14100 / (6.022 * 10**23)  # in g\nV_bar = 0.703  # in mL/g\nrho = 0.998  # in g/mL\ns_bar = 1.91 * 10**-13  # in s\neta = 1.002  # in g/m.s\n\n```"
+        }
+    ],
+    "prompt_code": [
+        {
+            "role": "system",
+            "content": "You are an excellent physics teacher. Given a physics problem and its Python code, please review the code using the following checklist and improve it:\n\n**Checklist**:\n- If the problem text is correctly understood and solved.\n- Whether the calculation corresponds with correct, appropriate formulas, and the formula is correctly copied and variables in formula are correctly understood.\n- Whether the variables and constants are correctly defined before use, ensuring that constants are not confused.\n- If the problem is solved, whether the code prints the first target variable at the end.\n- Check the unit, whether the target variable is printed in the required unit. When outputting the quantity of a substance, distinguish between the actual number of entities and the number of moles, as they differ by a factor of NA.\n- When using formulas, pay attention to the conditions under which the formulas are applicable. Distinguish between the states of substances in reactions. For example, when using the ideal gas law, ensure that the substance is in the gaseous state.\n\nPlease reiterate your code and return the improved code. Encasing the code within triple backticks for clarity.\n"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A vessel is filled completely with liquid ethanol and sealed at 25.0°C and a pressure of 1.50 bar. What is the pressure if the temperature of the system is raised to 75.0°C? β_ethanol = 1.12 * 10^-4 K^-1, β_vessel = 1.42 * 10^-4 K^-1, and κ_ethanol = 6.86 * 10^-5 bar^-1.The unit of the answer is bar. **Code**: ```\n# Given parameters\nT0 = 25.0  # initial temperature in °C\nTf = 75.0  # final temperature in °C\nP0 = 1.50  # initial pressure in bar\nbeta_ethanol = 1.12e-4  # thermal expansion coefficient of ethanol in K^-1\nbeta_vessel = 1.42e-4  # thermal expansion coefficient of vessel in K^-1\nkappa_ethanol = 6.86e-5  # isothermal compressibility of ethanol in bar^-1\n\n# potential formulas\n# PV = nRT, ideal gas law\n\n# calculate the final pressure\nPf = P0 * Tf / T0\n\nprint({Pf)\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The code has 1 error. The problem discussed water in liquid form, so the ideal gas formula PV = nRT should not be used. **Code**: ```\n# Given parameters\nT0 = 25.0  # initial temperature in °C\nTf = 75.0  # final temperature in °C\nP0 = 1.50  # initial pressure in bar\nbeta_ethanol = 1.12e-4  # thermal expansion coefficient of ethanol in K^-1\nbeta_vessel = 1.42e-4  # thermal expansion coefficient of vessel in K^-1\nkappa_ethanol = 6.86e-5  # isothermal compressibility of ethanol in bar^-1\n\n# potential formulas\n# delta_V = beta * delta_T, the change in volume\n# delta_P = delta_V / kappa, the change in pressure\n\n# Calculate temperature change\ndelta_T = Tf - T0\n\n# Calculate volume expansion of ethanol\ndelta_V_ethanol = beta_ethanol * delta_T\n\n# Calculate volume expansion of vessel\ndelta_V_vessel = beta_vessel * delta_T\n\n# Calculate effective change in volume\ndelta_V_effective = delta_V_ethanol - delta_V_vessel\n\n# Calculate change in pressure\ndelta_P = delta_V_effective / kappa_ethanol\n\n# Calculate final pressure\nPf = P0 + delta_P\n\nprint({Pf)\n\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: A cylinder filled with pure oxygen has a volume of 1L, a temperature of 25°C, and a pressure of 3 atm. Calculate the number of the oxygen. The unit of the answer is  . **Code**: ```\n# Given parameters\nV = 1  # volume in L\nT = 25 + 273.15  # temperature in K\nP = 3  # pressure in atm\nR = 0.082057  # gas constant in L·atm/mol·K\n\n# potential formula\n# PV = nRT, ideal gas law\n\n# Calculate number of moles\nn = P * V / (R * T)\n\nprint(n)\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The problem asks to output the actual number of entities instead of the number of moles. Advice: multiple n by NA = 6.022e23. **Code**: ```\n# Given parameters\nV = 1  # volume in L\nT = 25 + 273.15  # temperature in K\nP = 3  # pressure in atm\nR = 0.082057  # gas constant in L·atm/mol·K\nNA = 6.022e23  # Avogadro's number\n\n# potential formula\n# PV = nRT, ideal gas law\n\n# Calculate number of moles\nn = P * V / (R * T)\n\n# number of moles\nn = n * NA\n\nprint(n)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: \nGiven the following balanced chemical equation for the combustion of methane (CH4):\n    \n    CH4(g) + 2O2(g) → CO2(g) + 2H2O(l)\n\nUsing the standard enthalpies of formation (ΔHf°) provided below, calculate the standard enthalpy change (ΔHrxn°) for the reaction:\n    \n    - ΔHf° (CH4(g)) = -74.8 kJ/mol\n    - ΔHf° (O2(g)) = 0 kJ/mol (standard state)\n    - ΔHf° (CO2(g)) = -393.5 kJ/mol\n    - ΔHf° (H2O(l)) = -285.8 kJ/mol\n The unit of the code is J **Code**: ```\n# Given parameters\nHf_CH4 = -74.8  # in kJ/mol\nHf_O2 = 0  # in kJ/mol\nHf_CO2 = -393.5  # in kJ/mol\nHf_H2O = -285.8  # in kJ/mol\n\n# potential formulas\n# deltaH = c * H(C) + d * H(D) - a * H(A) - b * H(B), standard enthalpy change for aA + bB -> cC + dD\n\n# Calculate standard enthalpy change\nΔH = Hf_CO2 + Hf_H2 + Hf_CH4 + Hf_O2\n\nprint(ΔH)\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "**Error**: The code has 2 errors. \n1.Though the code correctly find the potential formula, it confused the reactants and products. Reactants' enthalpy should be subtracted from the formula, and products' should be added.\n2.The foumula is not well understood. Enthalpy should be multiplied by the number before the substances. **Code**: ```\n# Given parameters\nHf_CH4 = -74.8  # in kJ/mol\nHf_O2 = 0  # in kJ/mol\nHf_CO2 = -393.5  # in kJ/mol\nHf_H2O = -285.8  # in kJ/mol\n\n# potential formulas\n# deltaH = c * H(C) + d * H(D) - a * H(A) - b * H(B), standard enthalpy change for aA + bB -> cC + dD\n\n# Calculate standard enthalpy change\nΔH = 1 * Hf_CO2 + 2 * Hf_H2O - 1 * Hf_CH4 - 2 * Hf_O2\n\nprint(ΔH)\n```"
+        },
+        {
+            "role": "user",
+            "content": "**Problem**: For an ensemble consisting of 1.00 moles of particles having two energy levels separated by h v=1.00 * 10^-20 J, at what temperature will the internal energy of this system equal 1.00 kJ ? The unit of the answer is  K. **Code**: ```\nimport math\n\n# Define the constants\nn = 1.00  # in mol\nN_A = 6.022 * 10**23  # in mol^-1\nh_nu = 1.00 * 10**-20  # in J\nU = 1.00 * 10**3  # in J\nk = 1.38 * 10**-23  # in J/K\n\n# Potential formulas\n# T = h_nu / (k * math.log((n * N_A * h_nu / U) - 1)), calculate temperature due to the reltaion between the internal energy and the gap of two energy levels\n\n# Calculate T\nT = h_nu / (k * math.log((n * N_A * h_nu / U) - 1))\nprint(T)\n```"
+        },
+        {
+            "role": "assistant",
+            "content": "No error **Code**: ```\nimport math\n\n# Define the constants\nn = 1.00  # in mol\nN_A = 6.022 * 10**23  # in mol^-1\nh_nu = 1.00 * 10**-20  # in J\nU = 1.00 * 10**3  # in J\nk = 1.38 * 10**-23  # in J/K\n\n# Potential formulas\n# T = h_nu / (k * math.log((n * N_A * h_nu / U) - 1)), calculate temperature due to the reltaion between the internal energy and the gap of two energy levels\n\n# Calculate T\nT = h_nu / (k * math.log((n * N_A * h_nu / U) - 1))\nprint(T)\n```"
+        }
+    ]
+}

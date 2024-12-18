@@ -1,0 +1,454 @@
+{
+    "Gas Laws": {
+        "24-1": {
+            "name": "Ideal Gas Law",
+            "content": "P * V = n * R * T",
+            "variables": {
+                "P": "Pressure",
+                "V": "Volume",
+                "n": "Number of moles",
+                "R": "Ideal gas constant",
+                "T": "Temperature"
+            }
+        },
+        "24-2": {
+            "name": "Boyle's Law",
+            "content": "P1 * V1 = P2 * V2",
+            "variables": {
+                "P1": "Initial pressure",
+                "V1": "Initial volume",
+                "P2": "Final pressure",
+                "V2": "Final volume"
+            }
+        },
+        "24-3": {
+            "name": "Charles's Law",
+            "content": "V1 / T1 = V2 / T2",
+            "variables": {
+                "V1": "Initial volume",
+                "T1": "Initial temperature",
+                "V2": "Final volume",
+                "T2": "Final temperature"
+            }
+        },
+        "24-4": {
+            "name": "Dalton's Law of Partial Pressures",
+            "content": "P_total = P1 + P2 + P3 + ...",
+            "variables": {
+                "P_total": "Total pressure",
+                "P1, P2, P3, ...": "Partial pressures of the individual gases"
+            }
+        },
+        "1-3": {
+            "name": "van der Waals equation of state",
+            "content": "(P + a * (n/V)^2) * (V - nb) = nRT",
+            "variables": {
+                "P": "pressure",
+                "V": "volume",
+                "n": "number of moles",
+                "a, b": "van der Waals constants",
+                "R": "ideal gas constant",
+                "T": "temperature"
+            }
+        }
+    },
+    "Macro Heat, Work": {
+        "2-2": {
+            "name": "Thermodynamic formula for heating fluid",
+            "content": "q = m * C * deltaT",
+            "variables": {
+                "q": "heat",
+                "m": "mass",
+                "C": "specific heat capacity",
+                "deltaT": "temperature change"
+            }
+        },
+        "5-2": {
+            "name": "coefficient of performance (COP) of a Carnot refrigerator, given temparature of the cold reservoir (Tc) and the hot reservoir (Th)",
+            "content": "COP = Tc / (Th - Tc)",
+            "variables": {
+                "COP": "coefficient of performance",
+                "Tc": "temperature of the cold reservoir",
+                "Th": "temperature of the hot reservoir"
+            }
+        },
+        "5-3": {
+            "name": "coefficient of performance (COP) of a Carnot refrigerator, given Q and W",
+            "content": "COP = Q / W",
+            "variables": {
+                "COP": "coefficient of performance",
+                "Q": "heat absorbed from the cold reservoir",
+                "W": "work done by the refrigerator"
+            }
+        },
+        "8-3": {
+            "name": "Surface tension work formula of a sphere",
+            "content": "W = gamma * delta_A",
+            "variables": {
+                "W": "work",
+                "gamma": "surface tension",
+                "delta_A": "change in surface area"
+            }
+        },
+        "3-1": {
+            "name": "pressure change of liquid",
+            "content": "deltaP = (beta_liquid * delta_T - beta_vessel * delta_T)/ kappa_liquid",
+            "variables": {
+                "deltaP": "pressure change",
+                "beta_liquid": "coefficient of volume expansion of the liquid",
+                "delta_T": "temperature change",
+                "beta_vessel": "coefficient of volume expansion of the vessel",
+                "kappa_liquid": "bulk modulus of the liquid"
+            }
+        }
+    },
+    "Gibbs free": {
+        "11-1": {
+            "name": "standard Gibbs free energy change given electrode potential of a battery, where F=96485 C/mol is Faraday's constant",
+            "content": "deltaG = -n * F * E",
+            "variables": {
+                "deltaG": "standard Gibbs free energy change",
+                "n": "number of moles of electrons transferred",
+                "F": "Faraday's constant",
+                "E": "electrode potential"
+            }
+        },
+        "11-2": {
+            "name": "the Gibbs free energy of a reaction like: aA + bB -> cC + dD",
+            "content": "deltaG = c * deltaGf(C) + d * deltaGf(D) - a * deltaGf(A) - b * deltaGf(B)",
+            "variables": {
+                "deltaG": "Gibbs free energy of the reaction",
+                "deltaGf": "standard Gibbs free energy of formation",
+                "a, b, c, d": "stoichiometric coefficients"
+            }
+        },
+        "6-2": {
+            "name": "standard Gibbs free energy change given equilibrium constant",
+            "content": "deltaG = -RT * ln(K)",
+            "variables": {
+                "deltaG": "standard Gibbs free energy change",
+                "R": "ideal gas constant",
+                "T": "temperature",
+                "K": "equilibrium constant"
+            }
+        },
+        "6-4": {
+            "name": "calculate Delta G for the isothermal expansion of an ideal gas",
+            "content": "Delta_G = -n * R * T * ln(P_f / P_i)",
+            "variables": {
+                "Delta_G": "Change in Gibbs free energy",
+                "n": "number of moles",
+                "R": "ideal gas constant",
+                "T": "temperature",
+                "P_f": "final pressure",
+                "P_i": "initial pressure"
+            }
+        }
+    },
+    "Entropy": {
+        "5-1": {
+            "name": "entropy change of a system",
+            "content": "deltaS = q/T",
+            "variables": {
+                "deltaS": "entropy change",
+                "q": "heat added to the system",
+                "T": "temperature"
+            }
+        },
+        "5-4": {
+            "name": "entropy change of a reaction like aA + bB -> cC + dD",
+            "content": "deltaS = c * S(C) + d * S(D) - a * S(A) - b * S(B)",
+            "variables": {
+                "deltaS": "entropy change",
+                "S": "molar entropy",
+                "a, b, c, d": "stoichiometric coefficients"
+            }
+        },
+        "5-5": {
+            "name": "Delta S for liquid mercury",
+            "content": "Delta_S = n * C_P_m * math.log(T_f/T_i) - n * V_m_i * beta * (P_f - P_i)",
+            "variables": {
+                "Delta_S": "Change in entropy",
+                "n": "number of moles",
+                "C_P_m": "molar heat capacity at constant pressure",
+                "T_f": "final temperature",
+                "T_i": "initial temperature",
+                "V_m_i": "molar volume at initial state",
+                "beta": "coefficient of volume expansion",
+                "P_f": "final pressure",
+                "P_i": "initial pressure"
+            }
+        }
+    },
+    "Mixture of Gases or Liquid": {
+        "1-2": {
+            "name": "average molar mass of a mixture of gases",
+            "content": "M = M1 * portion1 + M2 * portion2 + ...",
+            "variables": {
+                "M": "average molar mass",
+                "M1, M2": "molar masses of the gases",
+                "portion1, portion2": "portions of the gases"
+            }
+        },
+        "1-4": {
+            "name": "pressure of mixed liquid given the vapor pressure of pure",
+            "content": "P = x1 * P1* + x2 * P2*",
+            "variables": {
+                "P": "pressure of the mixed liquid",
+                "x1, x2": "mole fractions of the liquids",
+                "P1*, P2*": "vapor pressures of the pure liquids"
+            }
+        }
+    },
+    "Equilibrium of reaction": {
+        "2-1": {
+            "name": "equilibrium constant of a reaction like: aA + bB -> cC + dD",
+            "content": "K = [C]^c * [D]^d / [A]^a * [B]^b",
+            "variables": {
+                "K": "equilibrium constant",
+                "a, b, c, d": "stoichiometric coefficients"
+            }
+        },
+        "2-3": {
+            "name": "equilibrium constant of a reaction like: aA + bB -> cC + dD",
+            "content": "K = (P_C)^c * (P_D)^d / (P_A)^a * (P_B)^b",
+            "variables": {
+                "K": "equilibrium constant",
+                "a, b, c, d": "stoichiometric coefficients"
+            }
+        },
+        "6-3": {
+            "name": "Equilibrium Constant Formula for Dissociation Reaction like aA -> bB + cC, given alpha as the degree of dissociation",
+            "content": "K = alpha^b * alpha^c / (1 - alpha)^a",
+            "variables": {
+                "K": "equilibrium constant",
+                "alpha": "degree of dissociation",
+                "a": "stoichiometric coefficient of reactant",
+                "b, c": "stoichiometric coefficients of products"
+            }
+        }
+    },
+    "Translational Partition Function": {
+        "14-1": {
+            "name": "1D translational partition function",
+            "content": "q = L / h * sqrt(2 * pi * m * k * T)",
+            "variables": {
+                "q": "partition function",
+                "L": "length of the box",
+                "h": "Planck's constant",
+                "m": "mass",
+                "k": "Boltzmann constant",
+                "T": "temperature"
+            }
+        },
+        "14-2": {
+            "name": "2D translational partition function",
+            "content": "q = A / h**2 * (2 * pi * m * k * T)",
+            "variables": {
+                "q": "partition function",
+                "A": "area of the box",
+                "h": "Planck's constant",
+                "m": "mass",
+                "k": "Boltzmann constant",
+                "T": "temperature"
+            }
+        },
+        "14-3": {
+            "name": "3D translational partition function",
+            "content": "q = V / h**3 * (2 * pi * m * k * T)**(3/2)",
+            "variables": {
+                "q": "partition function",
+                "V": "volume of the box",
+                "h": "Planck's constant",
+                "m": "mass",
+                "k": "Boltzmann constant",
+                "T": "temperature"
+            }
+        }
+    },
+    "FRET efficiency": {
+        "15-1": {
+            "name": "FRET efficiency",
+            "content": "E = 1 / (1 + (r / R0)**6)",
+            "variables": {
+                "E": "FRET efficiency",
+                "r": "distance between the donor and acceptor",
+                "R0": "Förster distance"
+            }
+        }
+    },
+    "Rate of reation": {
+        "16-1": {
+            "name": "rate of reaction",
+            "content": "r = k * [A]^a * [B]^b",
+            "variables": {
+                "r": "rate of reaction",
+                "k": "rate constant",
+                "a, b": "order of reaction",
+                "[A], [B]": "concentration of reactants"
+            }
+        },
+        "16-2": {
+            "name": "rate constant",
+            "content": "k = A * exp(-Ea / (R * T))",
+            "variables": {
+                "k": "rate constant",
+                "A": "pre-exponential factor",
+                "Ea": "activation energy",
+                "R": "gas constant",
+                "T": "temperature"
+            }
+        }
+    },
+    "Enthalpy": {
+        "17-1": {
+            "name": "enthalpy change of a reaction like: aA + bB -> cC + dD",
+            "content": "deltaH = c * H(C) + d * H(D) - a * H(A) - b * H(B)",
+            "variables": {
+                "deltaH": "enthalpy change",
+                "H": "molar enthalpy",
+                "a, b, c, d": "stoichiometric coefficients"
+            }
+        }
+    },
+    "Clausius-Clapeyron equation": {
+        "18-1": {
+            "name": "Clausius-Clapeyron equation given the vapor pressure of",
+            "content": "ln(P2 / P1) = deltaH_vap / R * (1 / T1 - 1 / T2)",
+            "variables": {
+                "P1, P2": "pressure",
+                "deltaH_vap": "enthalpy of vaporization",
+                "R": "ideal gas constant",
+                "T1, T2": "temperature"
+            }
+        }
+    },
+    "Boltzman Distribution": {
+        "13-1": {
+            "name": "Energy difference conversion given energy levels gap",
+            "content": "delta_E = nu = h * c * delta_x",
+            "variables": {
+                "delta_E": "energy difference",
+                "h": "Planck's constant",
+                "c": "speed of light",
+                "delta_x": "energy levels gap"
+            }
+        },
+        "13-2": {
+            "name": "Boltzmann distribution formula",
+            "content": "N2 / N1 = exp(-delta_E / (kB * T))",
+            "variables": {
+                "N1, N2": "number of particles in energy levels",
+                "delta_E": "energy difference",
+                "kB": "Boltzmann constant",
+                "T": "temperature"
+            }
+        }
+    },
+    "Kinetic theory of gases": {
+        "17-0": {
+            "name": "velocity distribution of gas molecules",
+            "content": "f(v) = (m / (2 * pi * k * T))**(3/2) * 4 * pi * v**2 * exp(-m * v**2 / (2 * k * T))",
+            "variables": {
+                "f(v)": "velocity distribution function",
+                "m": "mass of the gas molecule",
+                "k": "Boltzmann constant",
+                "T": "temperature",
+                "v": "velocity"
+            }
+        },
+        "17-1": {
+            "name": "flow rate of gas through a pipe",
+            "content": "Q = (pi * r^4 * (P2**2 - P1**2)) / (16 * eta * L * P_0)",
+            "variables": {
+                "Q": "flow rate",
+                "r": "radius of the pipe",
+                "P1, P2": "pressures",
+                "eta": "viscosity",
+                "L": "length of the pipe",
+                "P_0": "pressure when estimating the volume of the gas"
+            }
+        }
+    },
+    "Transport Phenomena": {
+        "17-3": {
+            "name": "diffusion coefficient",
+            "content": "D = 1/3 * sqrt(8 * R * T / (pi * M)) * (R * T / (P * NA * 2**0.5 * s_collision))",
+            "variables": {
+                "D": "diffusion coefficient",
+                "R": "ideal gas constant",
+                "T": "temperature",
+                "M": "molar mass",
+                "P": "pressure",
+                "NA": "Avogadro's number",
+                "s_collision": "collision cross section"
+            }
+        },
+        "17-4": {
+            "name": "relation between terminal velocity centrifugation, and the sedimentation coefficient",
+            "content": "s = m * (1 - v * rho) / f",
+            "variables": {
+                "s": "sedimentation coefficient",
+                "m": "mass",
+                "v": "velocity",
+                "rho": "density",
+                "f": "frictional coefficient"
+            }
+        }
+    },
+    "Electrolyte Solutions": {
+        "10-1": {
+            "name": "Debye-Hückel screening length \\kappa",
+            "content": "kappa^2 = e^2 * N_A *1000 * m * ((v_pos * z_pos ** 2 + v_neg * z_neg ** 2) / (epsilon * epsilon_0 * kB * T)) * rho_solvent"
+        },
+        "10-2": {
+            "name": "mean ionic activity given activity coefficients",
+            "content": "gamma = exp(-abs(z_pos * z_neg) * e^2 * kappa / (8 * pi * epsilon * epsilon_0 * kB * T))",
+            "variables": {
+                "gamma": "mean ionic activity",
+                "z_pos, z_neg": "ionic charges",
+                "e": "elementary charge",
+                "kappa": "Debye-Hückel screening length",
+                "epsilon": "dielectric constant",
+                "epsilon_0": "vacuum permittivity",
+                "kB": "Boltzmann constant",
+                "T": "temperature"
+            }
+        }
+    },
+    "Statistical Thermodynamics": {
+        "15-1": {
+            "name": "Molar constant volume heat capacity formula",
+            "content": "C_v = C_trans + C_rot + C_vib",
+            "variables": {
+                "C_v": "molar constant volume heat capacity",
+                "C_trans": "molar translational heat capacity",
+                "C_rot": "molar rotational heat capacity",
+                "C_vib": "molar vibrational heat capacity"
+            }
+        },
+        "15-2": {
+            "name": "the reltaion between the internal energy and the gap of two energy levels",
+            "content": "T = h_nu / (k * math.log((n * N_A * h_nu / U) - 1))",
+            "variables": {
+                "T": "temperature",
+                "h_nu": "energy gap",
+                "k": "Boltzmann constant",
+                "n": "number of particles",
+                "N_A": "Avogadro's number",
+                "U": "internal energy"
+            }
+        },
+        "15-3": {
+            "name": "thermal wavelength for a particle",
+            "content": "lambda_thermo = (h**2 / (2 * math.pi * m * k * T))**0.5",
+            "variables": {
+                "lambda_thermo": "thermal wavelength",
+                "h": "Planck's constant",
+                "m": "mass",
+                "k": "Boltzmann constant",
+                "T": "temperature"
+            }
+        }
+    }
+}

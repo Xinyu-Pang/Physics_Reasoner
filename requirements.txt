@@ -1,0 +1,8 @@
+latex2sympy==1.0.3
+latex2sympy2==1.9.1
+numpy==1.24.2
+openai==1.58.1
+Requests==2.32.3
+tqdm==4.66.5
+vllm==0.6.5
+wolframclient==1.1.10
